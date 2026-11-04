@@ -15,50 +15,395 @@
 .variant-actions{justify-content:flex-start;flex-wrap:wrap;gap:8px}.variant-actions .open{font-size:13px;padding:7px 11px}
 
 .cards.all-view{display:block}.all-intro{margin:0 0 14px;color:var(--muted);font-size:14px}.all-table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:10px}.all-table{width:100%;min-width:720px;border-collapse:collapse;font-size:14px}.all-table th,.all-table td{padding:12px 15px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}.all-table th{background:#edf3f6;color:var(--navy);font-weight:700}.all-table tr:last-child td{border-bottom:0}.all-table th:nth-child(1){width:95px}.all-table th:nth-child(3){width:120px}.all-table th:nth-child(4){width:275px}.all-table tbody tr:hover{background:#f7fafb}.all-links{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.all-links .open{padding:6px 10px;font-size:13px;white-space:nowrap}.all-muted{color:var(--muted);font-size:13px}footer .contact{margin-top:12px}footer .contact a{color:var(--teal)}@media(max-width:720px){.tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.tabs #tab-all{grid-column:1/-1}}
+.ta-directory-tools{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:16px 0 12px}.ta-directory-tools input{font:inherit;border:1px solid var(--line);border-radius:7px;padding:9px 12px;width:min(100%,340px);background:#fff;color:var(--ink)}.ta-directory-table{min-width:520px}.ta-directory-table th:nth-child(1){width:105px}.ta-directory-table th:nth-child(2){width:auto}.ta-directory-table th:nth-child(3){width:180px}.ta-directory-table .open{white-space:nowrap}.ta-directory-table button.open{font:inherit;color:var(--muted);border-color:var(--line);background:#f3f5f7;cursor:default;font-size:13px;padding:7px 12px}
+#education-ta-guide[hidden],#practice-ta-guide[hidden]{display:none}
+
+header{padding:16px 0 18px}header p{font-size:13px}h1{font-size:26px;margin-bottom:5px}.eyebrow{display:none}.card{min-height:145px}.card-brief{font-size:12px!important}.compact-help{margin-top:24px}.guide summary{cursor:pointer;font-weight:650;color:var(--ink)}.guide[open]>summary{margin-bottom:14px}#education-ta-guide{margin-top:14px}#education-ta-guide p{font-size:13px}#process-guide{margin-top:14px}.tabs{flex-wrap:wrap}.toolbar{flex-wrap:wrap}.search{min-width:220px}footer .wrap>p:not(.contact){display:none}
+
+.card{min-height:0;padding:12px 18px;gap:5px}.card h3{font-size:17px;line-height:1.4}.card .action{padding-top:3px;margin-top:0}.card .open{padding:5px 11px;font-size:13px}.cards{gap:12px}#practice-ta-guide{margin-top:14px}#practice-ta-guide[hidden]{display:none}#practice-ta-guide p{font-size:13px}
+.card h2{font-size:17px;line-height:1.4;margin:0}.compact-help p{font-size:13px;margin:8px 0}
+
+.view-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.view-tabs button{border:1px solid var(--line);border-radius:7px;padding:8px 16px;background:white;color:var(--ink);cursor:pointer}.view-tabs button[aria-selected=true]{background:var(--navy);color:white}.list-tools{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:14px}.list-tools input{font:inherit;padding:8px 12px;border:1px solid var(--line);border-radius:7px;min-width:240px}.form-list{width:100%;border-collapse:collapse;background:white;font-size:14px;min-width:760px}.form-list th,.form-list td{padding:11px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}.form-list th{background:#E6EDF4;color:var(--navy)}.form-list th:first-child{width:90px}.form-list th:nth-child(2){width:34%}.form-list .open{font-size:12px;padding:5px 9px;white-space:nowrap}.form-group{margin:0 0 22px}.form-group h2{font-size:17px;margin:0 0 8px}.page-note{font-size:13px;color:var(--muted);margin:8px 0 18px}.placeholder{font-size:12px;color:#77828e}.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px}#list-status{font-size:13px;color:var(--muted)}
 </style>
 </head>
-<body>
-<header><div class="wrap"><p class="eyebrow">사업단 행정 서식</p><h1>사업단 서식안내</h1><p>학생용·교수용·직원용·공통서식에서 필요한 서식을 찾아 작성하세요.<br>서식별 제출방법과 업무 진행 순서를 확인해 주세요.</p></div></header>
-<main class="wrap">
-<section class="guide" aria-labelledby="guide-title"><h2 id="guide-title">작성 및 제출 안내: 서식별 작성방법 다름</h2>
-<ol class="submit-flows">
-<li><strong>1. 구글폼 서식</strong><span>폼 작성·제출 → 사업단 접수</span></li>
-<li><strong>2. 활동일지</strong><span>사본 작성 → 확인·서명 → PDF 저장 → 이메일 제출 → 관리자 취합</span></li>
-<li><strong>3. 신청·결과보고서</strong><span>자동화 서식 작성 → 증빙 첨부·필요 시 서명 → 사업단 제출 → 관리자 취합·검토</span></li>
-</ol><div class="notice"><p>제출 이메일: <a href="mailto:ai.robot@kw.ac.kr">ai.robot@kw.ac.kr</a>　/　파일명: 성명_서식명_해당연월.pdf</p><p>서식별 별도 안내와 기존 전자결재가 있으면 해당 절차를 따르세요. <a href="#process-guide">프로세스별 자세한 안내 ↓</a></p></div></section>
-<div class="toolbar"><div class="tabs" role="tablist" aria-label="서식 사용자 구분"><button id="tab-student" role="tab" aria-selected="true" aria-controls="form-panel" tabindex="0" data-role="학생용">학생용</button><button id="tab-professor" role="tab" aria-selected="false" aria-controls="form-panel" tabindex="-1" data-role="교수용">교수용</button><button id="tab-staff" role="tab" aria-selected="false" aria-controls="form-panel" tabindex="-1" data-role="직원용">직원용</button><button id="tab-common" role="tab" aria-selected="false" aria-controls="form-panel" tabindex="-1" data-role="공통서식">공통서식</button><button id="tab-all" role="tab" aria-selected="false" aria-controls="form-panel" tabindex="-1" data-role="사업단 서식 전체">사업단 서식 전체</button></div><div class="search"><label class="sr-only" for="search">현재 메뉴에서 서식 검색</label><input type="search" id="search" placeholder="현재 메뉴에서 서식명 검색" autocomplete="off"></div></div>
-<section id="form-panel" role="tabpanel" aria-labelledby="tab-student"><div class="section-head"><h2 id="section-title">학생용 서식</h2><p id="count" role="status" aria-live="polite"></p></div><p id="common-shortcut" class="common-shortcut">여러 역할이 함께 쓰는 서식은 <button type="button" id="open-common">공통서식에서 확인 →</button></p><div id="cards" class="cards"></div></section>
-<section id="process-guide" class="process-guide" aria-labelledby="process-title"><h2 id="process-title">프로세스별 안내</h2><p class="process-intro">업무명을 누르면 담당자별 진행 순서를 볼 수 있습니다. 자동화 연동은 순차 적용하며, 현재 서식의 제출 안내를 우선 따르세요.</p><details class="process-detail"><summary>TA 추천과 활동일지</summary><ol><li><strong>추천·신청 접수 · 교수·지정 신청자</strong><p>학생·교과목·담당교원·참여율·활동기간을 제출합니다. 필요한 추천·서명 자료를 함께 준비합니다.</p><p class="process-next">다음: 사업단 검토</p></li><li><strong>검토·승인 · 직원</strong><p>추천 내용과 적용 기준을 확인하고 승인·보완·반려 상태를 기록합니다.</p><p class="process-next">다음: 승인 배정 확정</p></li><li><strong>월간 활동일지 발급 · 직원</strong><p>승인 명단과 해당 학기 시간표를 바탕으로 학생·교과목·월별 작성본을 제공합니다.</p><p class="process-next">다음: 학생 작성</p></li><li><strong>실제 활동 작성 · 학생</strong><p>예정 시간을 실제 활동에 맞게 고치고 근무내용을 작성합니다. 여러 시간은 13:00~15:00, 16:00~18:00처럼 입력합니다.</p><p class="process-next">다음: 교원 확인·서명</p></li><li><strong>확인·PDF 제출 · 학생·교수</strong><p>학생·담당교원 확인 및 서명을 마친 PDF를 공지된 이메일로 제출합니다.</p><p class="process-next">다음: 사업단 수신 확인</p></li><li><strong>검토·보완·마감 · 직원</strong><p>수신·시수·내용·서명과 적용 기준을 확인합니다. 보완본과 최종본을 구분해 보관합니다.</p><p class="process-next">다음: 마감 또는 보완 요청</p></li></ol></details><details class="process-detail"><summary>교과목 계획과 결과</summary><ol><li><strong>계획 제출 · 교수</strong><p>교과목·운영기간·참여기업·계획과 예산을 작성하고 필요한 서명을 받습니다.</p><p class="process-next">다음: 사업단 검토</p></li><li><strong>검토·사업 등록 · 직원</strong><p>계획을 검토하고 승인된 사업번호와 기본 정보를 등록합니다. 변경 사항은 이력을 남깁니다.</p><p class="process-next">다음: 교과목 운영</p></li><li><strong>결과보고 제출 · 교수</strong><p>실제 운영 결과와 최종 집행 내역을 작성하고 교안 등 필요한 자료를 첨부합니다.</p><p class="process-next">다음: 사업단 확인</p></li><li><strong>결과 확인·보관 · 직원</strong><p>같은 사업번호로 계획과 결과를 연결하고 내용·첨부·서명·집행 내역을 확인합니다.</p><p class="process-next">다음: 마감 또는 보완 요청</p></li></ol></details><details class="process-detail"><summary>비교과 계획과 결과</summary><ol><li><strong>지원 신청 · 교수·지정 담당자</strong><p>프로그램 유형·명칭·일정·장소·내용·예산을 작성합니다.</p><p class="process-next">다음: 사업단 검토</p></li><li><strong>검토·회차 등록 · 직원</strong><p>승인된 프로그램과 개최 회차를 구분해 등록합니다.</p><p class="process-next">다음: 프로그램 운영</p></li><li><strong>결과보고 제출 · 교수·지정 담당자</strong><p>실제 일정·참가 명단·성과·최종 집행 내역을 작성하고 사진·홍보물 등 자료를 첨부합니다.</p><p class="process-next">다음: 사업단 확인</p></li><li><strong>참가·결과 확인 · 직원</strong><p>회차별 인원과 기간 전체 중복 제거 인원을 구분하고 양성학생 여부와 증빙을 확인합니다.</p><p class="process-next">다음: 마감 또는 보완 요청</p></li></ol></details><details class="process-detail"><summary>행사 신청과 결과</summary><ol><li><strong>행사 신청 · 직원·해당 작성자</strong><p>행사명·일정·장소·내용·신청 예산을 작성합니다.</p><p class="process-next">다음: 검토·승인</p></li><li><strong>개최·결과 작성 · 직원·해당 작성자</strong><p>승인된 행사번호로 실제 참석인원·행사 내용·사진·증빙을 연결합니다.</p><p class="process-next">다음: 결과 검토</p></li><li><strong>검토·마감 · 직원</strong><p>신청과 실제 결과, 참석 명단과 집행 증빙을 대조하고 최종본을 보관합니다.</p><p class="process-next">다음: 마감 또는 보완 요청</p></li></ol></details><details class="process-detail"><summary>재료구입</summary><ol><li><strong>신청 작성 · 학생·교수 등 해당 신청자</strong><p>신청자·교과목 또는 사업을 선택하고 품목·규격·VAT 포함 금액과 견적서를 준비합니다.</p><p class="process-next">다음: 사업단 검토</p></li><li><strong>검토·보완 · 직원</strong><p>신청 대상·관련 사업·품목·금액·증빙을 확인합니다. 수량 추가·초과 품목 등은 승인된 작성 기준을 따릅니다.</p><p class="process-next">다음: 승인 또는 보완 요청</p></li><li><strong>실제 집행 확인 · 직원</strong><p>실제 집행액과 증빙을 등록하고 신청액·승인액·실제 집행액을 구분합니다.</p><p class="process-next">다음: 관련 결과보고·마감</p></li></ol></details><details class="process-detail"><summary>출장</summary><ol><li><strong>제출 경로 확인 · 출장 신청자</strong><p>사업단 직원·산중교원은 원문상 기존 전자결재를 사용합니다. 그 외 대상은 지정 양식과 경로를 확인합니다.</p><p class="process-next">다음: 신청 제출</p></li><li><strong>신청·검토 · 신청자·직원</strong><p>출장 목적·일정·장소·대상자와 관련 사업·증빙을 제출·검토합니다.</p><p class="process-next">다음: 결재·보완</p></li><li><strong>처리 기록 · 직원</strong><p>기존 결재 상태와 필요한 증빙을 확인하고 해당 사업에 연결합니다.</p><p class="process-next">다음: 기존 절차에 따른 완료</p></li></ol></details><details class="process-detail"><summary>야간 및 휴일 식대</summary><ol><li><strong>업무일지 작성 · 학생TA·교수·직원 등 해당자</strong><p>실제 근무일시·업무내용·참여자·사용금액과 필요한 영수증을 준비합니다.</p><p class="process-next">다음: 사업단 검토</p></li><li><strong>조건·증빙 확인 · 직원</strong><p>승인된 집행 시각·한도·지역 조건과 실제 근무·증빙을 확인합니다.</p><p class="process-next">다음: 승인 또는 보완 요청</p></li><li><strong>집행·보관 · 직원</strong><p>실제 처리 결과를 사업별로 연결하고 최종본을 보관합니다.</p><p class="process-next">다음: 마감</p></li></ol></details><details class="process-detail"><summary>장비 사용과 활용도</summary><ol><li><strong>장비 사용 접수 · 학생·조교 등 장비 사용자</strong><p>실제 장비와 교과목·프로그램, 활용 목적·시작·종료 정보를 기록합니다.</p><p class="process-next">다음: 사용기록 확인</p></li><li><strong>기록 확인 · 조교·직원</strong><p>장비 식별·시작종료 짝·겹친 시간과 활용 분류를 확인합니다. TA 활동시간을 장비 가동시간으로 그대로 복사하지 않습니다.</p><p class="process-next">다음: 기간별 집계</p></li><li><strong>활용도 집계 · 직원</strong><p>승인된 분류 기준으로 A=B+D, 교육 활용률=B/A를 집계합니다. 지정 비교과 목록을 적용합니다.</p><p class="process-next">다음: 검토·보관</p></li></ol></details><details class="process-detail"><summary>전문가 활용</summary><ol><li><strong>신청 · 교수·지정 신청자</strong><p>활용 목적·일시·대상·시간과 관련 사업 정보를 제출합니다. 신분·계좌 자료는 승인된 별도 경로를 따릅니다.</p><p class="process-next">다음: 사업단 검토</p></li><li><strong>기준·증빙 검토 · 직원</strong><p>내외부 구분·승인 단가·인정 시간과 활용 증빙을 확인합니다.</p><p class="process-next">다음: 직원 지급 처리</p></li><li><strong>처리 결과 보관 · 직원</strong><p>지급 처리 결과와 관련 증빙을 해당 사업에 연결합니다.</p><p class="process-next">다음: 마감 또는 보완</p></li></ol></details><details class="process-detail"><summary>원고료</summary><ol><li><strong>원고·신청 제출 · 교수·해당 저자</strong><p>교보재명·저자·문서종류·매수와 원고 증빙을 제출합니다.</p><p class="process-next">다음: 사업단 검토</p></li><li><strong>인정 매수·단가 검토 · 직원</strong><p>인정 매수와 단가를 확정하고 관련 증빙을 확인합니다.</p><p class="process-next">다음: 직원 지급 처리</p></li><li><strong>처리 결과 보관 · 직원</strong><p>처리 결과·최종 원고·증빙을 연결하고 개정판을 구분합니다.</p><p class="process-next">다음: 마감 또는 보완</p></li></ol></details><details class="process-detail"><summary>개인정보 동의</summary><ol><li><strong>안내·서명 · 해당 신청자</strong><p>해당 신청에 필요한 승인된 동의 문구를 확인하고 요구된 서명을 합니다.</p><p class="process-next">다음: 제한된 제출 경로로 제출</p></li><li><strong>수신·보관 확인 · 직원</strong><p>수신·서명·문구 버전을 확인하고 제한된 위치에 보관합니다.</p><p class="process-next">다음: 해당 신청과 연결</p></li></ol></details><details class="process-detail"><summary>인턴일지</summary><ol><li><strong>일지 작성·제출 · 학생</strong><p>학생용에 등록된 폼에서 해당 일지를 직접 작성·제출합니다.</p><p class="process-next">다음: 담당자 확인</p></li><li><strong>확인 · 교수·지정 담당자</strong><p>교수용에 등록된 확인용 시트를 이용합니다. 세부 확인·보완 절차는 담당자 안내로 확정합니다.</p><p class="process-next">다음: 확인 또는 보완 안내</p></li></ol></details></section>
-<noscript><p>메뉴와 검색을 사용하려면 브라우저의 JavaScript를 허용해 주세요. 서식 이용 문의: uanshin@kw.ac.kr / airobotics.group@gmail.com</p></noscript>
-</main>
-<footer><div class="wrap"><p class="contact">문의: <a href="mailto:uanshin@kw.ac.kr">uanshin@kw.ac.kr</a> / <a href="mailto:airobotics.group@gmail.com">airobotics.group@gmail.com</a></p><p>링크가 없거나 열리지 않으면 사업단에 문의해 주세요.</p><p>메뉴 구분은 이용 안내이며, 파일 접근권한은 연결된 서비스에서 관리합니다.</p></div></footer>
-<script>
-const forms={"학생용": [{"number": "양식 8", "name": "교과목 TA활동일지_1차년도", "url": "https://docs.google.com/spreadsheets/d/1umVED6mMFJ_buY31xTEtUZOvhbyEUeWs/edit?usp=drive_web&ouid=101010404019375031020&rtpof=true", "note": "", "brief": "월별 근무시간·내용 기록 → 학생·교원 서명 → PDF 이메일 제출", "cardNote": "사본을 만들어 작성", "process": "P01", "editNote": "", "links": [{"label": "계산 출력본 ↗", "url": "https://docs.google.com/spreadsheets/d/1umVED6mMFJ_buY31xTEtUZOvhbyEUeWs/edit?usp=drive_web&ouid=101010404019375031020&rtpof=true"}, {"label": "계산 미출력본 ↗", "url": "https://docs.google.com/spreadsheets/d/1aBub1vXkq_e1xyCSfgfrxg5WAksHHGpQ/edit?gid=933464213#gid=933464213"}]}, {"number": "양식 8", "name": "실습TA 활동일지_1차년도", "url": "https://docs.google.com/spreadsheets/d/1pgLi2x8XoVaSbiSnAu1yc4wIJ-HssDG1vrdxxvCzkHo/edit?usp=drivesdk", "note": "", "brief": "월별 근무시간·내용 기록 → 학생·교원 서명 → PDF 이메일 제출", "cardNote": "사본을 만들어 작성", "process": "P01", "editNote": ""}, {"number": "별도 서식", "name": "교과목장비관리일지_1차년도", "url": "https://docs.google.com/forms/d/e/1FAIpQLScKsxvGQJTjS-uvVda4msIujCEckR1LvUW63Es0H33iAVytgQ/viewform", "note": "", "brief": "장비 사용내역을 구글폼에 작성·제출합니다.", "cardNote": "구글폼에서 직접 제출", "process": "P08", "editNote": ""}, {"number": "양식 10", "name": "재료구입신청서", "url": "", "note": "", "brief": "구입 품목·규격·금액을 작성하고 업체별 견적서를 첨부합니다.", "cardNote": "사업단 문의", "process": "P05", "editNote": ""}, {"number": "첨부", "name": "개인정보 이용 동의서", "url": "", "note": "", "brief": "동의 내용을 확인·서명한 뒤 지정 경로로 제출합니다.", "cardNote": "사업단 문의", "process": "P11", "editNote": ""}, {"number": "ETC", "name": "연구실 인턴일지", "url": "https://docs.google.com/forms/d/e/1FAIpQLSecd6eP7YBmgzRCtv-mSEpviujR-6Oik4otT332L9aCaKndWQ/viewform", "note": "", "brief": "인턴 활동내용을 구글폼에 작성·제출합니다.", "cardNote": "폼에서 직접 제출", "process": "P12", "editNote": ""}, {"number": "별도 서식", "name": "학회참관기", "url": "", "note": "", "brief": "학회 참관 내용과 소감을 작성합니다.", "cardNote": "사업단 문의", "process": "", "editNote": ""}], "교수용": [{"number": "양식 1", "name": "기업협업교과 개발운영계획서", "url": "", "note": "", "brief": "교과목 운영계획·실제 결과와 예산·증빙을 작성해 제출합니다.", "cardNote": "사업단 문의", "process": "P02", "editNote": ""}, {"number": "양식 2", "name": "비교과 프로그램 지원신청서", "url": "", "note": "", "brief": "비교과 운영계획·실제 결과와 참가 명단·증빙을 제출합니다.", "cardNote": "사업단 문의", "process": "P03", "editNote": ""}, {"number": "양식 3", "name": "교과목 결과보고서", "url": "", "note": "", "brief": "교과목 운영계획·실제 결과와 예산·증빙을 작성해 제출합니다.", "cardNote": "사업단 문의", "process": "P02", "editNote": ""}, {"number": "양식 4", "name": "비교과 프로그램 결과보고서", "url": "", "note": "", "brief": "비교과 운영계획·실제 결과와 참가 명단·증빙을 제출합니다.", "cardNote": "사업단 문의", "process": "P03", "editNote": ""}, {"number": "양식 5", "name": "전문가활용 신청서", "url": "", "note": "", "brief": "전문가 활용 목적·일시·시간을 작성하고 증빙을 제출합니다.", "cardNote": "사업단 문의", "process": "P09", "editNote": ""}, {"number": "양식 6", "name": "원고료 지급 신청서", "url": "", "note": "", "brief": "교보재·저자·매수를 작성하고 원고 등 증빙을 제출합니다.", "cardNote": "사업단 문의", "process": "P10", "editNote": ""}, {"number": "양식 7", "name": "교육TA 추천서", "url": "", "note": "", "brief": "추천 학생·교과목·참여율·활동기간을 작성해 사업단에 제출합니다.", "cardNote": "사업단 문의", "process": "P01", "editNote": ""}, {"number": "ETC", "name": "연구실인턴일지", "url": "https://docs.google.com/spreadsheets/d/1-t7ctHytawDDJOpJMfXorkr_mW5PMqUllADLm60K_xs/edit?gid=865748120#gid=865748120", "note": "", "brief": "연결된 시트에서 담당 학생의 연구실 인턴일지를 확인합니다.", "cardNote": "구글시트작성", "process": "P12", "editNote": ""}], "직원용": [{"number": "양식 11", "name": "야간 및 휴일 식대 업무일지", "url": "", "note": "", "brief": "실제 근무내용·참여자·사용금액을 기록하고 영수증을 첨부합니다.", "cardNote": "사업단 문의", "process": "P07", "editNote": ""}, {"number": "양식 12", "name": "행사 개최 신청서 및 결과보고서", "url": "", "note": "", "brief": "행사 계획·예산을 신청하고 종료 후 결과·증빙을 제출합니다.", "cardNote": "사업단 문의", "process": "P04", "editNote": ""}, {"number": "양식 2", "name": "비교과 프로그램 지원신청서", "url": "", "note": "", "brief": "비교과 운영계획·실제 결과와 참가 명단·증빙을 제출합니다.", "cardNote": "사업단 문의", "process": "P03", "editNote": ""}, {"number": "양식 4", "name": "비교과 프로그램 결과보고서", "url": "", "note": "", "brief": "비교과 운영계획·실제 결과와 참가 명단·증빙을 제출합니다.", "cardNote": "사업단 문의", "process": "P03", "editNote": ""}, {"number": "양식 5", "name": "전문가활용 신청서", "url": "", "note": "", "brief": "전문가 활용 목적·일시·시간을 작성하고 증빙을 제출합니다.", "cardNote": "사업단 문의", "process": "P09", "editNote": ""}, {"number": "양식 6", "name": "원고료 지급 신청서", "url": "", "note": "", "brief": "교보재·저자·매수를 작성하고 원고 등 증빙을 제출합니다.", "cardNote": "사업단 문의", "process": "P10", "editNote": ""}, {"number": "양식 12", "name": "행사 개최 신청서 및 결과보고서", "url": "", "note": "", "brief": "행사 계획·예산을 신청하고 종료 후 결과·증빙을 제출합니다.", "cardNote": "사업단 문의", "process": "P04", "editNote": ""}, {"number": "별도 서식", "name": "교육장비 관리일지 및 활용도 집계_1차년도", "url": "https://docs.google.com/spreadsheets/d/16QVLcgM3NEgzNlCuSZzvOVREC5z5hQy08rrLt5gAppk/edit?usp=drivesdk", "note": "", "brief": "장비 사용기록과 장비별 활용도 집계를 확인·관리합니다.", "cardNote": "직원용 집계 시트", "process": "P08", "editNote": "", "buttonLabel": "집계 시트 열기 ↗"}], "공통서식": [{"number": "양식 5", "name": "전문가활용 신청서", "url": "", "note": "", "brief": "전문가 활용 목적·일시·시간을 작성하고 증빙을 제출합니다.", "cardNote": "사업단 문의", "process": "P09", "editNote": ""}, {"number": "양식 6", "name": "원고료 지급 신청서", "url": "", "note": "", "brief": "교보재·저자·매수를 작성하고 원고 등 증빙을 제출합니다.", "cardNote": "사업단 문의", "process": "P10", "editNote": ""}, {"number": "양식 9", "name": "출장 신청서", "url": "", "note": "", "brief": "출장 목적·일정·대상자를 작성합니다. 직원·산중교원은 기존 전자결재를 이용합니다.", "cardNote": "사업단 문의", "process": "P06", "editNote": ""}, {"number": "양식 10", "name": "재료구입신청서", "url": "", "note": "", "brief": "구입 품목·규격·금액을 작성하고 업체별 견적서를 첨부합니다.", "cardNote": "사업단 문의", "process": "P05", "editNote": ""}, {"number": "양식 12", "name": "행사 개최 신청서 및 결과보고서", "url": "", "note": "", "brief": "행사 계획·예산을 신청하고 종료 후 결과·증빙을 제출합니다.", "cardNote": "사업단 문의", "process": "P04", "editNote": ""}, {"number": "첨부", "name": "개인정보 이용 동의서", "url": "", "note": "", "brief": "동의 내용을 확인·서명한 뒤 지정 경로로 제출합니다.", "cardNote": "사업단 문의", "process": "P11", "editNote": ""}]};
+<body><header><div class="wrap"><h1>사업단 서식안내</h1><p>서식을 찾고 해당 사용자 칸의 링크를 여세요.</p></div></header><main class="wrap">
+<div class="view-tabs" role="tablist" aria-label="서식 보기 방식"><button id="view-all" role="tab" aria-selected="true" aria-controls="form-list">사업단 전체서식</button><button id="view-process" role="tab" aria-selected="false" aria-controls="form-list">프로세스별</button></div>
+<div class="list-tools"><label class="sr-only" for="form-search">서식·프로세스 검색</label><input id="form-search" type="search" placeholder="서식명 또는 프로세스 검색"><span id="list-status" role="status" aria-live="polite"></span></div>
+<p class="page-note">학생·교수·직원 칸에서 이용할 링크를 선택하세요. ‘—’는 기존 안내에 이용 대상으로 구분되지 않은 항목이며, 미등록 링크는 추후 연결합니다.</p><div id="form-list"></div>
+<section id="education-ta-guide" class="guide" hidden aria-labelledby="education-ta-title"><details id="ta-directory-details"><summary id="education-ta-title">교육TA 활동일지 · 명단 보기</summary><p>본인 이름을 찾아 활동일지를 여세요. 공유받은 Google 계정으로 접속하세요.</p><div class="ta-directory-tools"><label class="sr-only" for="ta-directory-search">교육TA 이름 또는 교과목 검색</label><input id="ta-directory-search" type="search" placeholder="이름 또는 교과목 검색" autocomplete="off"><span id="ta-directory-count" class="all-muted" role="status" aria-live="polite"></span></div><div class="all-table-wrap"><table class="all-table ta-directory-table"><thead><tr><th scope="col">성명</th><th scope="col">교과목</th><th scope="col">개인별 활동일지</th></tr></thead><tbody id="ta-directory-body"></tbody></table></div><div class="notice"><p>공유받은 Google 계정으로 개인별 활동일지를 열고, 파일 → 사본 만들기로 해당 월 작성본을 만드세요. 사본에서 월을 선택하고 근무시간·내용을 확인하여 작성하세요.</p><p>작성 후 PDF로 저장하고 학생·담당교원 확인 및 서명을 받아 노지원 담당자(<a href="mailto:jiwony@kw.ac.kr">jiwony@kw.ac.kr</a> / <a href="mailto:ai.robot@kw.ac.kr">ai.robot@kw.ac.kr</a>)에게 제출하세요.</p><p>시스템 문의: <a href="mailto:uanshin@kw.ac.kr">uanshin@kw.ac.kr</a> / <a href="mailto:airobotics.group@gmail.com">airobotics.group@gmail.com</a></p></div></details></section><section id="practice-ta-guide" class="guide" hidden aria-labelledby="practice-ta-title"><details id="practice-directory-details"><summary id="practice-ta-title">실습TA 활동일지 · 명단 보기</summary><p>본인 이름과 실험실을 확인한 뒤 활동일지를 여세요.</p><div class="ta-directory-tools"><label class="sr-only" for="practice-directory-search">실습TA 이름 또는 실험실 검색</label><input id="practice-directory-search" type="search" placeholder="이름 또는 실험실 검색" autocomplete="off"><span id="practice-directory-count" class="all-muted" role="status" aria-live="polite"></span></div><div class="all-table-wrap"><table class="all-table ta-directory-table"><thead><tr><th scope="col">성명</th><th scope="col">실험실</th><th scope="col">개인별 활동일지</th></tr></thead><tbody id="practice-directory-body"></tbody></table></div><div class="notice"><p>공유받은 Google 계정으로 개인별 활동일지를 열고, 파일 → 사본 만들기로 해당 월 작성본을 만드세요. 먼저 [작성요령] 탭을 읽고 사본의 활동일지 F2에서 월을 선택한 뒤 근무시간·내용을 확인하여 작성하세요. 파일이 열리지 않거나 링크에 문제가 있으면 시스템 문의 이메일로 연락하세요.</p><p>작성 후 PDF로 저장하고 학생·담당교원 확인 및 서명을 받아 노지원 담당자(<a href="mailto:jiwony@kw.ac.kr">jiwony@kw.ac.kr</a> / <a href="mailto:ai.robot@kw.ac.kr">ai.robot@kw.ac.kr</a>)에게 제출하세요.</p><p>시스템 문의: <a href="mailto:uanshin@kw.ac.kr">uanshin@kw.ac.kr</a> / <a href="mailto:airobotics.group@gmail.com">airobotics.group@gmail.com</a></p></div></details></section><details class="guide compact-help"><summary>작성·제출 안내</summary><p><strong>TA 활동일지:</strong> 아래 순서로 작성·제출하세요.</p><p>개인별 링크 열기 → 파일 → 사본 만들기 → 해당 월 선택 → 근무시간·내용 확인 및 작성. 매월 원본에서 새 사본을 만들고, 지난달 작성본은 그대로 보관하세요. 세부 작성방법은 각 파일의 작성요령을 확인하세요.</p><p>학생·담당교원 확인 및 서명 → PDF 저장 → 노지원 담당자에게 제출</p><p>제출 담당자: 노지원 / <a href="mailto:jiwony@kw.ac.kr">jiwony@kw.ac.kr</a> / <a href="mailto:ai.robot@kw.ac.kr">ai.robot@kw.ac.kr</a><br>파일명: 성명_TA활동일지_해당연월.pdf</p></details></main><footer><div class="wrap"><p class="contact">시스템 문의: <a href="mailto:uanshin@kw.ac.kr">uanshin@kw.ac.kr</a> / <a href="mailto:airobotics.group@gmail.com">airobotics.group@gmail.com</a></p></div></footer><script>const formRows=[{"number": "양식 1", "name": "기업협업교과 개발운영계획서", "process": "교과목 계획·결과", "roles": {"교수": {"url": "", "label": "서식 열기"}}}, {"number": "양식 2", "name": "비교과 프로그램 지원신청서", "process": "비교과 계획·결과", "roles": {"교수": {"url": "", "label": "서식 열기"}, "직원": {"url": "", "label": "서식 열기"}}}, {"number": "양식 3", "name": "교과목 결과보고서", "process": "교과목 계획·결과", "roles": {"교수": {"url": "", "label": "서식 열기"}}}, {"number": "양식 4", "name": "비교과 프로그램 결과보고서", "process": "비교과 계획·결과", "roles": {"교수": {"url": "", "label": "서식 열기"}, "직원": {"url": "", "label": "서식 열기"}}}, {"number": "양식 5", "name": "전문가활용 신청서", "process": "전문가 활용", "roles": {"교수": {"url": "", "label": "서식 열기"}, "직원": {"url": "", "label": "서식 열기"}, "학생": {"url": "", "label": "서식 열기"}}}, {"number": "양식 6", "name": "원고료 지급 신청서", "process": "원고료", "roles": {"교수": {"url": "", "label": "서식 열기"}, "직원": {"url": "", "label": "서식 열기"}, "학생": {"url": "", "label": "서식 열기"}}}, {"number": "양식 7", "name": "교육TA 추천서", "process": "TA 추천·활동", "roles": {"교수": {"url": "", "label": "서식 열기"}}}, {"number": "양식 8", "name": "교육TA 활동일지", "process": "TA 추천·활동", "roles": {"학생": {"url": "#education-ta-guide", "label": "개인별 링크"}}}, {"number": "양식 8", "name": "실습TA 활동일지", "process": "TA 추천·활동", "roles": {"학생": {"url": "#practice-ta-guide", "label": "개인별 링크"}}}, {"number": "양식 9", "name": "출장 신청서", "process": "출장", "roles": {"학생": {"url": "", "label": "서식 열기"}, "교수": {"url": "", "label": "서식 열기"}, "직원": {"url": "", "label": "서식 열기"}}}, {"number": "양식 10", "name": "재료구입신청서", "process": "재료구입", "roles": {"학생": {"url": "", "label": "서식 열기"}, "교수": {"url": "", "label": "서식 열기"}, "직원": {"url": "", "label": "서식 열기"}}}, {"number": "양식 11", "name": "야간 및 휴일 식대 업무일지", "process": "야간·휴일 식대", "roles": {"직원": {"url": "", "label": "서식 열기"}}}, {"number": "양식 12", "name": "행사 개최 신청서 및 결과보고서", "process": "행사 신청·결과", "roles": {"직원": {"url": "", "label": "서식 열기"}, "학생": {"url": "", "label": "서식 열기"}, "교수": {"url": "", "label": "서식 열기"}}}, {"number": "별도 서식", "name": "교과목 장비관리일지·활용도 집계", "process": "장비 사용·집계", "roles": {"학생": {"url": "https://docs.google.com/forms/d/e/1FAIpQLScKsxvGQJTjS-uvVda4msIujCEckR1LvUW63Es0H33iAVytgQ/viewform", "label": "구글폼 작성"}, "직원": {"url": "https://docs.google.com/spreadsheets/d/16QVLcgM3NEgzNlCuSZzvOVREC5z5hQy08rrLt5gAppk/edit?usp=drivesdk", "label": "관리자 구글시트"}}}, {"number": "첨부", "name": "개인정보 이용 동의서", "process": "개인정보 동의", "roles": {"학생": {"url": "", "label": "서식 열기"}, "교수": {"url": "", "label": "서식 열기"}, "직원": {"url": "", "label": "서식 열기"}}}, {"number": "ETC", "name": "연구실 인턴일지", "process": "연구실 인턴", "roles": {"학생": {"url": "https://docs.google.com/forms/d/e/1FAIpQLSecd6eP7YBmgzRCtv-mSEpviujR-6Oik4otT332L9aCaKndWQ/viewform", "label": "구글폼 작성"}, "교수": {"url": "https://docs.google.com/spreadsheets/d/1-t7ctHytawDDJOpJMfXorkr_mW5PMqUllADLm60K_xs/edit?gid=865748120#gid=865748120", "label": "확인용 구글시트"}}}, {"number": "별도 서식", "name": "학회참관기", "process": "기타", "roles": {"학생": {"url": "", "label": "서식 열기"}}}, {"number": "관리자료", "name": "TA 명단", "process": "관리자료", "roles": {"직원": {"url": "", "label": "관리자료"}}}, {"number": "관리자료", "name": "교과목 수업시간표", "process": "관리자료", "roles": {"직원": {"url": "", "label": "관리자료"}}}];
 
-const allForms=[{"number":"양식 1","name":"기업협업교과 개발운영계획서","kind":"입력·출력형","url":"","links":[],"admin":false},{"number":"양식 2","name":"비교과 프로그램 지원신청서","kind":"입력·출력형","url":"","links":[],"admin":false},{"number":"양식 3","name":"교과목 결과보고서","kind":"입력·출력형","url":"","links":[],"admin":false},{"number":"양식 4","name":"비교과 프로그램 결과보고서","kind":"입력·출력형","url":"","links":[],"admin":false},{"number":"양식 5","name":"전문가활용 신청서","kind":"입력·출력형","url":"","links":[],"admin":false},{"number":"양식 6","name":"원고료 지급 신청서","kind":"입력·출력형","url":"","links":[],"admin":false},{"number":"양식 7","name":"교육TA 추천서","kind":"입력·출력형","url":"","links":[],"admin":false},{"number":"양식 8","name":"교육TA 활동일지","kind":"입력·출력형","url":"https://docs.google.com/spreadsheets/d/1umVED6mMFJ_buY31xTEtUZOvhbyEUeWs/edit?usp=drive_web&ouid=101010404019375031020&rtpof=true","links":[{"label":"계산 출력본 ↗","url":"https://docs.google.com/spreadsheets/d/1umVED6mMFJ_buY31xTEtUZOvhbyEUeWs/edit?usp=drive_web&ouid=101010404019375031020&rtpof=true"},{"label":"계산 미출력본 ↗","url":"https://docs.google.com/spreadsheets/d/1aBub1vXkq_e1xyCSfgfrxg5WAksHHGpQ/edit?gid=933464213#gid=933464213"}],"admin":false},{"number":"양식 8","name":"실습TA 활동일지","kind":"입력·출력형","url":"https://docs.google.com/spreadsheets/d/1pgLi2x8XoVaSbiSnAu1yc4wIJ-HssDG1vrdxxvCzkHo/edit?usp=drivesdk","links":[],"admin":false},{"number":"양식 9","name":"출장 신청서","kind":"입력·출력형","url":"","links":[],"admin":false},{"number":"양식 10","name":"재료구입신청서","kind":"입력·출력형","url":"","links":[],"admin":false},{"number":"양식 11","name":"야간 및 휴일 식대 업무일지","kind":"입력·출력형","url":"","links":[],"admin":false},{"number":"양식 12","name":"행사 개최 신청서 및 결과보고서","kind":"입력·출력형","url":"","links":[],"admin":false},{"number":"별도 서식","name":"학생용 교과목장비관리일지","kind":"입력형","url":"https://docs.google.com/forms/d/e/1FAIpQLScKsxvGQJTjS-uvVda4msIujCEckR1LvUW63Es0H33iAVytgQ/viewform","links":[],"admin":false},{"number":"별도 서식","name":"직원용 교육장비 관리일지·활용도 집계","kind":"조회·출력형","url":"https://docs.google.com/spreadsheets/d/16QVLcgM3NEgzNlCuSZzvOVREC5z5hQy08rrLt5gAppk/edit?usp=drivesdk","links":[],"admin":false},{"number":"첨부","name":"개인정보 이용 동의서","kind":"입력·출력형","url":"","links":[],"admin":false},{"number":"ETC","name":"학생용 연구실 인턴일지","kind":"입력형","url":"https://docs.google.com/forms/d/e/1FAIpQLSecd6eP7YBmgzRCtv-mSEpviujR-6Oik4otT332L9aCaKndWQ/viewform","links":[],"admin":false},{"number":"ETC","name":"교수용 연구실 인턴일지","kind":"조회형","url":"https://docs.google.com/spreadsheets/d/1-t7ctHytawDDJOpJMfXorkr_mW5PMqUllADLm60K_xs/edit?gid=865748120#gid=865748120","links":[],"admin":false},{"number":"별도 서식","name":"학회참관기","kind":"입력·출력형","url":"","links":[],"admin":false},{"number":"관리자료","name":"TA 명단","kind":"입력·조회형","url":"","links":[],"admin":true},{"number":"관리자료","name":"교과목 수업시간표","kind":"입력·조회형","url":"","links":[],"admin":true}];
-function renderAllForms(){
- const q=search.value.trim().toLocaleLowerCase('ko');
- const list=allForms.filter(f=>(f.number+' '+f.name+' '+f.kind).toLocaleLowerCase('ko').includes(q));
- cards.replaceChildren();document.querySelector('#section-title').textContent='사업단 서식 전체';document.querySelector('#common-shortcut').hidden=true;
- document.querySelector('#count').textContent=q?'검색 결과 '+list.length+'건':'전체 '+list.length+'건';
- cards.append(el('p','all-intro','번호순 전체 목록입니다. 등록된 링크에서 서식을 열고, 관리자료는 사업단 담당자를 통해 확인하세요.'));
- const wrap=el('div','all-table-wrap'),table=el('table','all-table'),head=el('thead'),header=el('tr');
- for(const title of ['번호','서식명','유형','링크']){const th=el('th','',title);th.setAttribute('scope','col');header.append(th);}head.append(header);table.append(head);
- const body=el('tbody');
- for(const f of list){const row=el('tr');row.append(el('td','',f.number),el('td','',f.name),el('td','',f.kind));const cell=el('td'),links=el('div','all-links');
-  const choices=f.links&&f.links.length?f.links:f.url?[{label:f.url.includes('docs.google.com/forms/')?'폼 작성하기 ↗':f.kind==='조회형'?'조회 시트 열기 ↗':f.kind==='조회·출력형'?'집계 시트 열기 ↗':'서식 열기 ↗',url:f.url}]:[];
-  for(const choice of choices){const a=el('a','open',choice.label);a.href=choice.url;a.target='_blank';a.rel='noopener noreferrer';a.setAttribute('aria-label',f.name+' '+choice.label.replace(' ↗','')+' 새 창에서 열기');links.append(a);}
-  if(!choices.length)links.append(el('span','all-muted',f.admin?'관리자용 · 링크 미등록':'링크 미등록 · 사업단 문의'));
-  cell.append(links);row.append(cell);body.append(row);
- }
- table.append(body);wrap.append(table);cards.append(wrap);if(!list.length)cards.append(el('p','empty','검색 결과가 없습니다. 다른 서식명으로 검색해 주세요.'));
-}
-
-let activeRole='학생용';
-const tabs=[...document.querySelectorAll('[role=tab]')],search=document.querySelector('#search'),cards=document.querySelector('#cards');
+let view='all';
 function el(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;if(text)n.textContent=text;return n}
-function render(){cards.classList.toggle('all-view',activeRole==='사업단 서식 전체');if(activeRole==='사업단 서식 전체'){renderAllForms();return;}const q=search.value.trim().toLocaleLowerCase('ko');const list=forms[activeRole].filter(f=>(f.name+' '+f.number+' '+f.note+' '+f.brief).toLocaleLowerCase('ko').includes(q));cards.replaceChildren();document.querySelector('#section-title').textContent=activeRole==='공통서식'?'공통서식':activeRole+' 서식';document.querySelector('#common-shortcut').hidden=activeRole==='공통서식';document.querySelector('#count').textContent=q?'검색 결과 '+list.length+'건':'전체 '+list.length+'건';for(const f of list){const isForm=f.url.includes('docs.google.com/forms/');const card=el('article','card'),top=el('div','card-top');top.append(el('span','tag',f.number));if(f.cardNote&&f.cardNote!=='사업단 문의')top.append(el('span','type',f.cardNote));else if(f.url)top.append(el('span','type',isForm?'구글폼':'구글시트'));card.append(top,el('h3','',f.name),el('p','card-brief',f.brief));if(f.note&&!f.brief.includes(f.note))card.append(el('p','card-note',f.note));const action=el('div','action');if(f.links&&f.links.length){action.classList.add('variant-actions');for(const choice of f.links){const a=el('a','open',choice.label);a.href=choice.url;a.target='_blank';a.rel='noopener noreferrer';a.setAttribute('aria-label',f.name+' '+choice.label.replace(' ↗','')+' 새 창에서 열기');action.append(a);}}else if(f.url){const a=el('a','open',f.buttonLabel||(isForm?'폼 작성하기 ↗':'서식 열기 ↗'));a.href=f.url;a.target='_blank';a.rel='noopener noreferrer';a.setAttribute('aria-label',f.name+' 새 창에서 열기');action.append(a);}else{action.append(el('span','unavailable','링크 미등록'),el('small','',f.cardNote||'사업단 문의'));}card.append(action);cards.append(card)}if(!list.length)cards.append(el('p','empty','검색 결과가 없습니다. 다른 서식명으로 검색해 주세요.'));}
-function selectTab(tab){activeRole=tab.dataset.role;tabs.forEach(t=>{t.setAttribute('aria-selected',String(t===tab));t.tabIndex=t===tab?0:-1});document.querySelector('#form-panel').setAttribute('aria-labelledby',tab.id);search.value='';render()}
-tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>selectTab(tab));tab.addEventListener('keydown',e=>{let j;if(e.key==='ArrowRight')j=(i+1)%tabs.length;else if(e.key==='ArrowLeft')j=(i+tabs.length-1)%tabs.length;else if(e.key==='Home')j=0;else if(e.key==='End')j=tabs.length-1;else return;e.preventDefault();tabs[j].focus();selectTab(tabs[j])})});document.querySelector('#open-common').addEventListener('click',()=>{const t=document.querySelector('#tab-common');selectTab(t);t.focus();});search.addEventListener('input',render);render();
-</script>
-</body></html>
+function openDirectory(kind){
+ document.querySelector('#education-ta-guide').hidden=kind!=='education';document.querySelector('#practice-ta-guide').hidden=kind!=='practice';
+ document.querySelector('#ta-directory-details').open=kind==='education';document.querySelector('#practice-directory-details').open=kind==='practice';
+}
+function makeFormTable(items){
+ const wrap=el('div','table-scroll'),table=el('table','form-list'),thead=el('thead'),header=el('tr');
+ for(const title of ['번호','서식명','학생','교수','직원']){const th=el('th','',title);th.setAttribute('scope','col');header.append(th);}thead.append(header);table.append(thead);
+ const body=el('tbody');
+ for(const row of items){const tr=el('tr');tr.append(el('td','',row.number),el('td','',row.name));
+  for(const role of ['학생','교수','직원']){const td=el('td'),entry=row.roles[role];if(!entry)td.append(el('span','placeholder','—'));else if(!entry.url)td.append(el('span','placeholder','링크 미등록'));else{const a=el('a','open',entry.label);a.href=entry.url;a.target=entry.url.startsWith('#')?'_self':'_blank';a.rel='noopener noreferrer';if(entry.url==='#education-ta-guide')a.addEventListener('click',()=>openDirectory('education'));if(entry.url==='#practice-ta-guide')a.addEventListener('click',()=>openDirectory('practice'));td.append(a);}tr.append(td);}body.append(tr);
+ }table.append(body);wrap.append(table);return wrap;
+}
+function renderForms(){
+ const q=document.querySelector('#form-search').value.trim().toLocaleLowerCase('ko'),items=formRows.filter(r=>(r.number+' '+r.name+' '+r.process).toLocaleLowerCase('ko').includes(q)),out=document.querySelector('#form-list');out.replaceChildren();
+ document.querySelector('#list-status').textContent=(q?'검색 ':'전체 ')+items.length+'건';
+ if(!items.length){out.append(el('p','empty','검색 결과가 없습니다.'));return;}
+ if(view==='all'){out.append(makeFormTable(items));return;}
+ const groups=new Map();for(const row of items){if(!groups.has(row.process))groups.set(row.process,[]);groups.get(row.process).push(row);}
+ for(const [name,rows]of groups){const section=el('section','form-group');section.append(el('h2','',name),makeFormTable(rows));out.append(section);}
+}
+function setView(next){view=next;for(const id of ['all','process'])document.querySelector('#view-'+id).setAttribute('aria-selected',String(id===next));document.querySelector('#education-ta-guide').hidden=true;document.querySelector('#practice-ta-guide').hidden=true;renderForms();}
+document.querySelector('#view-all').addEventListener('click',()=>setView('all'));document.querySelector('#view-process').addEventListener('click',()=>setView('process'));document.querySelector('#form-search').addEventListener('input',renderForms);
+renderForms();
+const personalTAFiles=[
+  {
+    "id": "TA-001",
+    "name": "오지수",
+    "course": "컴퓨터구조",
+    "url": "https://docs.google.com/spreadsheets/d/1KetImKlphxt3zZzUyAFXMlr-1ZwQnjIMsBUU1Ljey4U/edit?usp=drivesdk"
+  },
+  {
+    "id": "TA-002",
+    "name": "임동환",
+    "course": "컴퓨터구조",
+    "url": ""
+  },
+  {
+    "id": "TA-003",
+    "name": "이준호",
+    "course": "컴퓨터구조",
+    "url": ""
+  },
+  {
+    "id": "TA-004",
+    "name": "정환욱",
+    "course": "로봇기업경영",
+    "url": ""
+  },
+  {
+    "id": "TA-005",
+    "name": "윤도원",
+    "course": "Physical AI 실습",
+    "url": ""
+  },
+  {
+    "id": "TA-006",
+    "name": "김민준",
+    "course": "Physical AI 실습",
+    "url": ""
+  },
+  {
+    "id": "TA-007",
+    "name": "박주형",
+    "course": "제어공학1",
+    "url": ""
+  },
+  {
+    "id": "TA-008",
+    "name": "박유현",
+    "course": "인공지능응용",
+    "url": ""
+  },
+  {
+    "id": "TA-009",
+    "name": "박기웅",
+    "course": "컴퓨터비전",
+    "url": ""
+  },
+  {
+    "id": "TA-010",
+    "name": "이준호",
+    "course": "자동제어2",
+    "url": ""
+  },
+  {
+    "id": "TA-011",
+    "name": "박기정",
+    "course": "자동제어2",
+    "url": ""
+  },
+  {
+    "id": "TA-012",
+    "name": "김태웅",
+    "course": "로봇제어",
+    "url": ""
+  },
+  {
+    "id": "TA-013",
+    "name": "이채원",
+    "course": "모바일로봇의이해",
+    "url": ""
+  },
+  {
+    "id": "TA-014",
+    "name": "민희원",
+    "course": "모바일로봇의이해",
+    "url": ""
+  },
+  {
+    "id": "TA-015",
+    "name": "아리아",
+    "course": "AI로봇실험2",
+    "url": ""
+  },
+  {
+    "id": "TA-016",
+    "name": "손동우",
+    "course": "AI로봇실험2",
+    "url": ""
+  }
+];
+function safePersonalTAUrl(value){
+ try{const u=new URL(String(value||''));if(u.protocol!=='https:')return '';if(u.hostname==='docs.google.com'&&/^\/spreadsheets\/d\/[A-Za-z0-9_-]+(?:\/|$)/.test(u.pathname))return u.href;if(u.hostname==='drive.google.com'&&/^\/file\/d\/[A-Za-z0-9_-]+(?:\/|$)/.test(u.pathname))return u.href;return '';}catch(e){return '';}
+}
+function renderTADirectory(){
+ const body=document.querySelector('#ta-directory-body'),q=document.querySelector('#ta-directory-search').value.trim().toLocaleLowerCase('ko');
+ const visible=personalTAFiles.filter(p=>(p.name+' '+p.course).toLocaleLowerCase('ko').includes(q));body.replaceChildren();
+ const registered=personalTAFiles.filter(p=>safePersonalTAUrl(p.url)).length;
+ document.querySelector('#ta-directory-count').textContent=(q?'검색 '+visible.length+'건':'전체 '+personalTAFiles.length+'개 배정')+' · 링크 등록 '+registered+'/'+personalTAFiles.length;
+ for(const p of visible){const row=el('tr');row.append(el('td','',p.name),el('td','',p.course));const action=el('td'),url=safePersonalTAUrl(p.url);
+  if(url){const link=el('a','open','활동일지 열기 ↗');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.setAttribute('aria-label',p.name+' '+p.course+' 활동일지 새 창에서 열기');action.append(link);}
+  else{const button=el('button','open','링크 등록 전');button.type='button';button.disabled=true;button.setAttribute('aria-label',p.name+' '+p.course+' 링크 등록 전');action.append(button);}
+  row.append(action);body.append(row);
+ }
+ if(!visible.length){const row=el('tr'),cell=el('td','all-muted','검색 결과가 없습니다. 이름이나 교과목을 확인하세요.');cell.colSpan=3;row.append(cell);body.append(row);}
+}
+document.querySelector('#ta-directory-search').addEventListener('input',renderTADirectory);
+renderTADirectory();
+// 실습TA 개인별 파일 링크: 각 url에 해당 학생 전용 Google Drive/Sheets 주소를 넣습니다. 전체 명단·관리자 요약·ZIP 주소는 넣지 않습니다.
+const personalPracticeFiles=[
+ {
+  "id": "PT-001",
+  "name": "강채연",
+  "lab": "누리관 324호",
+  "url": ""
+ },
+ {
+  "id": "PT-002",
+  "name": "김도윤",
+  "lab": "누리관 324호",
+  "url": ""
+ },
+ {
+  "id": "PT-003",
+  "name": "김서현",
+  "lab": "누리관 324호",
+  "url": ""
+ },
+ {
+  "id": "PT-004",
+  "name": "문준영",
+  "lab": "누리관 324호",
+  "url": ""
+ },
+ {
+  "id": "PT-005",
+  "name": "박기웅",
+  "lab": "누리관 324호",
+  "url": ""
+ },
+ {
+  "id": "PT-006",
+  "name": "박기홍",
+  "lab": "누리관 324호",
+  "url": ""
+ },
+ {
+  "id": "PT-007",
+  "name": "엄일영",
+  "lab": "누리관 324호",
+  "url": ""
+ },
+ {
+  "id": "PT-008",
+  "name": "오지수(박일우)",
+  "lab": "누리관 324호",
+  "url": ""
+ },
+ {
+  "id": "PT-009",
+  "name": "오지수(백주훈)",
+  "lab": "누리관 324호",
+  "url": ""
+ },
+ {
+  "id": "PT-010",
+  "name": "이시환",
+  "lab": "누리관 324호",
+  "url": ""
+ },
+ {
+  "id": "PT-011",
+  "name": "이준호",
+  "lab": "누리관 324호",
+  "url": ""
+ },
+ {
+  "id": "PT-012",
+  "name": "임동환(박일우)",
+  "lab": "누리관 324호",
+  "url": ""
+ },
+ {
+  "id": "PT-013",
+  "name": "임동환(백주훈)",
+  "lab": "누리관 324호",
+  "url": ""
+ },
+ {
+  "id": "PT-014",
+  "name": "정환욱",
+  "lab": "누리관 324호",
+  "url": ""
+ },
+ {
+  "id": "PT-015",
+  "name": "고명진",
+  "lab": "참빛관 308~310호",
+  "url": ""
+ },
+ {
+  "id": "PT-016",
+  "name": "김규한",
+  "lab": "참빛관 308~310호",
+  "url": ""
+ },
+ {
+  "id": "PT-017",
+  "name": "김한서",
+  "lab": "참빛관 308~310호",
+  "url": ""
+ },
+ {
+  "id": "PT-018",
+  "name": "박민규",
+  "lab": "참빛관 308~310호",
+  "url": ""
+ },
+ {
+  "id": "PT-019",
+  "name": "박정혁",
+  "lab": "참빛관 308~310호",
+  "url": ""
+ },
+ {
+  "id": "PT-020",
+  "name": "박채원",
+  "lab": "참빛관 308~310호",
+  "url": ""
+ },
+ {
+  "id": "PT-021",
+  "name": "이정우",
+  "lab": "참빛관 308~310호",
+  "url": ""
+ },
+ {
+  "id": "PT-022",
+  "name": "최어진",
+  "lab": "참빛관 308~310호",
+  "url": ""
+ },
+ {
+  "id": "PT-023",
+  "name": "함현식",
+  "lab": "참빛관 308~310호",
+  "url": ""
+ },
+ {
+  "id": "PT-024",
+  "name": "김용균",
+  "lab": "비마관 212호",
+  "url": ""
+ },
+ {
+  "id": "PT-025",
+  "name": "장정수",
+  "lab": "비마관 212호",
+  "url": ""
+ },
+ {
+  "id": "PT-026",
+  "name": "고예진",
+  "lab": "비마관 213호",
+  "url": ""
+ },
+ {
+  "id": "PT-027",
+  "name": "김상윤",
+  "lab": "비마관 213호",
+  "url": ""
+ },
+ {
+  "id": "PT-028",
+  "name": "김정년",
+  "lab": "비마관 213호",
+  "url": ""
+ },
+ {
+  "id": "PT-029",
+  "name": "김종섭",
+  "lab": "비마관 213호",
+  "url": ""
+ },
+ {
+  "id": "PT-030",
+  "name": "김지훈",
+  "lab": "비마관 213호",
+  "url": ""
+ },
+ {
+  "id": "PT-031",
+  "name": "김희지",
+  "lab": "비마관 213호",
+  "url": ""
+ },
+ {
+  "id": "PT-032",
+  "name": "박소영",
+  "lab": "비마관 213호",
+  "url": ""
+ },
+ {
+  "id": "PT-033",
+  "name": "오수진",
+  "lab": "비마관 213호",
+  "url": ""
+ },
+ {
+  "id": "PT-034",
+  "name": "이승연",
+  "lab": "비마관 213호",
+  "url": ""
+ },
+ {
+  "id": "PT-035",
+  "name": "조연경",
+  "lab": "비마관 213호",
+  "url": ""
+ },
+ {
+  "id": "PT-036",
+  "name": "홍승혁",
+  "lab": "비마관 213호",
+  "url": ""
+ }
+];
+function renderPracticeDirectory(){
+ const body=document.querySelector('#practice-directory-body'),q=document.querySelector('#practice-directory-search').value.trim().toLocaleLowerCase('ko');
+ const visible=personalPracticeFiles.filter(p=>(p.name+' '+p.lab).toLocaleLowerCase('ko').includes(q));body.replaceChildren();
+ const registered=personalPracticeFiles.filter(p=>safePersonalTAUrl(p.url)).length;
+ document.querySelector('#practice-directory-count').textContent=(q?'검색 '+visible.length+'건':'전체 '+personalPracticeFiles.length+'개 배정')+' · 링크 등록 '+registered+'/'+personalPracticeFiles.length;
+ for(const p of visible){const row=el('tr');row.append(el('td','',p.name),el('td','',p.lab));const action=el('td'),url=safePersonalTAUrl(p.url);
+  if(url){const link=el('a','open','활동일지 열기 ↗');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.setAttribute('aria-label',p.name+' '+p.lab+' 활동일지 새 창에서 열기');action.append(link);}
+  else{const button=el('button','open','링크 등록 전');button.type='button';button.disabled=true;button.setAttribute('aria-label',p.name+' '+p.lab+' 링크 등록 전');action.append(button);}
+  row.append(action);body.append(row);
+ }
+ if(!visible.length){const row=el('tr'),cell=el('td','all-muted','검색 결과가 없습니다. 이름이나 실험실을 확인하세요.');cell.colSpan=3;row.append(cell);body.append(row);}
+}
+document.querySelector('#practice-directory-search').addEventListener('input',renderPracticeDirectory);
+renderPracticeDirectory();
+
+</script></body></html>
