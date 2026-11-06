@@ -1,6 +1,6 @@
 <!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>양식 9 출장신청서</title><style>body{margin:0;background:#f3f7fa;color:#174e70;font:15px/1.7 'Malgun Gothic','맑은 고딕',sans-serif}main{max-width:900px;margin:36px auto;padding:20px}iframe{border:0;width:100%;height:100dvh}a{color:inherit}.note{padding:16px;background:#fff;border:1px solid #ccdce7;border-radius:8px}</style></head><body><main id="setup"><h1>양식 9 출장신청서</h1><p class="note">출장신청 접수 연결을 준비하고 있습니다.</p><p>업무관리 문의: 위지은 연구원 · 02-940-5755 · <a href="mailto:jewi@kw.ac.kr">jewi@kw.ac.kr</a><br>시스템 문의: <a href="mailto:uanshin@kw.ac.kr">uanshin@kw.ac.kr</a> / <a href="mailto:airobotics.group@gmail.com">airobotics.group@gmail.com</a></p></main><script>
 // 출장신청 전용 Apps Script를 배포한 뒤 발급된 /exec 주소를 한 번 입력합니다.
-const TRIP_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyewQs2iKeyV4lTvaXEVaYg65Y0NF9-kiiNL-SvcxTeS4ZVD-RBkKWT7p_jHJ_G5UC8/exec";
+const TRIP_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwDB3aekxnpTj8lUM3lEWGPcBVYUOcj0eYVQoO4_Q6ml_1_dBf-GIVCltcmUXc34c4L/exec';
 if(/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(TRIP_WEB_APP_URL)){
  document.getElementById('setup').hidden=true;const iframe=document.createElement('iframe');iframe.src=TRIP_WEB_APP_URL;iframe.title='출장신청서 작성 및 사업단 제출';document.body.append(iframe);
 }
