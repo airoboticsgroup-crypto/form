@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TA 활동일지</title>
+  <style>
+    :root{
+      --navy:#174e7a;
+      --green:#1f6b52;
+      --ink:#18344b;
+      --muted:#65798a;
+      --line:#d7e1e8;
+      --bg:#f3f6f8;
+      --card:#ffffff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      background:var(--bg);
+      color:var(--ink);
+      font-family:system-ui,"Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+    }
+    .top{
+      background:#fff;
+      border-bottom:4px solid var(--navy);
+    }
+    .top-inner{
+      max-width:920px;
+      margin:0 auto;
+      padding:24px 22px 20px;
+    }
+    .brand{font-size:22px;font-weight:800;letter-spacing:-.02em}
+    .sub{margin-top:5px;font-size:13px;color:var(--muted)}
+    main{
+      max-width:920px;
+      margin:0 auto;
+      padding:42px 22px 60px;
+    }
+    .intro{
+      text-align:center;
+      margin-bottom:30px;
+    }
+    .intro h1{
+      margin:0 0 8px;
+      font-size:30px;
+      letter-spacing:-.04em;
+    }
+    .intro p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+    }
+    .menu{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:20px;
+    }
+    .card{
+      display:flex;
+      flex-direction:column;
+      min-height:250px;
+      padding:28px;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:14px;
+    }
+    .type{
+      display:inline-flex;
+      align-self:flex-start;
+      padding:5px 9px;
+      border-radius:999px;
+      background:#edf4f9;
+      color:var(--navy);
+      font-size:12px;
+      font-weight:800;
+    }
+    .card h2{
+      margin:20px 0 8px;
+      font-size:25px;
+      letter-spacing:-.035em;
+    }
+    .card p{
+      margin:0 0 24px;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:14px;
+    }
+    .open{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:50px;
+      margin-top:auto;
+      border-radius:8px;
+      text-decoration:none;
+      color:#fff;
+      background:var(--navy);
+      font-weight:800;
+      font-size:16px;
+    }
+    .practice .type{background:#edf7f2;color:var(--green)}
+    .practice .open{background:var(--green)}
+    .open:hover{filter:brightness(.94)}
+    .open:focus-visible{outline:3px solid #d99a2b;outline-offset:3px}
+    .notice{
+      margin-top:24px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
+    }
+    @media(max-width:680px){
+      .top-inner{padding:19px 18px 16px}
+      .brand{font-size:19px}
+      main{padding:30px 16px 44px}
+      .intro h1{font-size:25px}
+      .menu{grid-template-columns:1fr;gap:14px}
+      .card{min-height:215px;padding:23px}
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <div class="brand">로봇특성화대학사업단 TA 활동일지</div>
+      <div class="sub">본인의 TA 유형을 선택해 활동일지를 작성하세요.</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <h1 id="page-title">TA 활동일지</h1>
+      <p>배정받은 TA 유형을 선택하세요.</p>
+    </section>
+
+    <section class="menu" aria-label="TA 유형 선택">
+      <article class="card education">
+        <span class="type">교육TA</span>
+        <h2>교육TA 활동일지</h2>
+        <p>교과목 교육·학사 지원 활동일지를 작성하고 서명·제출합니다.</p>
+        <a class="open" href="https://script.google.com/macros/s/AKfycbwr1Taaixh4NWbB0wdA5HGGwRsTUoy2j-b-FoOjZK2LGHWq_kTuGGPfFO7SoT8Mvvxr/exec">교육TA 활동일지 열기</a>
+      </article>
+
+      <article class="card practice">
+        <span class="type">실습TA</span>
+        <h2>실습TA 활동일지</h2>
+        <p>실습 지원 활동일지를 작성하고 근무시간·추가 필요시간을 확인해 제출합니다.</p>
+        <a id="practiceLink" class="open" href="https://script.google.com/macros/s/AKfycbzEyG19UR6DZ-NpakUQKt1E7QbXVQRisN1XHWUwd5vR8Ayurqd6d5Nkbdd3WxwM0wp-aw/exec">실습TA 활동일지 열기</a>
+      </article>
+    </section>
+
+    <p class="notice">Google 계정으로 로그인한 후 본인에게 등록된 활동일지만 이용할 수 있습니다.</p>
+  </main>
+
+
+</body>
+</html>
