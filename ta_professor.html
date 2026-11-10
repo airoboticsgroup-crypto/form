@@ -1,37 +1,35 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>교육TA 교수 서명관리 안내</title>
 <style>
-:root{--green:#0f6b55;--line:#d7e2dd;--bg:#f5f8f6;--text:#18372e;--muted:#65756f}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Malgun Gothic",sans-serif;line-height:1.6}
-header{background:#fff;border-bottom:3px solid var(--green)}.bar{max-width:980px;margin:auto;padding:22px 24px}.brand{font-size:22px;font-weight:800}.sub{color:var(--muted);font-size:14px;margin-top:3px}
-main{max-width:900px;margin:32px auto;padding:0 20px}.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px;margin-bottom:18px}.kicker{font-size:12px;letter-spacing:.16em;color:var(--green);font-weight:800}h1{font-size:30px;margin:6px 0 12px}h2{font-size:19px;margin:0 0 12px}.flow{display:grid;gap:10px;margin:18px 0}.step{border:1px solid var(--line);border-radius:9px;padding:13px 15px;background:#fbfdfc}.step b{color:var(--green)}
-.notice{background:#eef7f2;border-left:4px solid #3a9a74;padding:14px 16px;border-radius:6px;margin:16px 0}.warn{background:#fff7ed;border-left-color:#d68a36}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.btn{display:inline-block;text-decoration:none;border:1px solid #9fc5b5;color:var(--green);background:#fff;padding:11px 16px;border-radius:8px;font-weight:800}.btn.primary{background:var(--green);color:#fff;border-color:var(--green)}.small{font-size:13px;color:var(--muted)}
+:root{--green:#0f6b55;--line:#d7e2dd;--bg:#f5f8f6;--text:#18372e;--muted:#65756f}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Malgun Gothic",sans-serif;line-height:1.6}header{background:#fff;border-bottom:3px solid var(--green)}.bar{max-width:980px;margin:auto;padding:22px 24px}.brand{font-size:22px;font-weight:800}.sub{color:var(--muted);font-size:14px;margin-top:3px}main{max-width:900px;margin:32px auto;padding:0 20px}.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px;margin-bottom:18px}.kicker{font-size:12px;letter-spacing:.16em;color:var(--green);font-weight:800}.title-row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:6px 0 12px}.title-row h1{font-size:30px;margin:0}.flow{display:grid;gap:10px;margin:18px 0}.step{border:1px solid var(--line);border-radius:9px;padding:13px 15px;background:#fbfdfc}.step b{color:var(--green)}.notice{background:#fff7ed;border-left:4px solid #d68a36;padding:14px 16px;border-radius:6px;margin:16px 0}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.btn{display:inline-block;text-decoration:none;border:1px solid #9fc5b5;color:var(--green);background:#fff;padding:11px 16px;border-radius:8px;font-weight:800}.btn.primary{background:var(--green);color:#fff;border-color:var(--green)}.small{font-size:13px;color:var(--muted)}[hidden]{display:none!important}
 </style>
 </head>
 <body>
 <header><div class="bar"><div class="brand">로봇특성화대학사업단 서식자동화시스템</div><div class="sub">교육TA · 담당교원 서명관리 안내</div></div></header>
-<main>
-<section class="card">
-<div class="kicker">EDUCATION TA · PROFESSOR</div>
-<h1>교육TA 교수 서명관리</h1>
-<p>담당교원은 학생이 본인서명을 완료한 교육TA 활동일지의 내용을 확인한 뒤 선택하여 일괄서명합니다.</p>
+<main><section class="card"><div class="kicker">EDUCATION TA · PROFESSOR</div><div class="title-row"><h1>교육TA 교수 서명관리</h1><a id="portal" class="btn primary" target="_blank" rel="noopener" aria-disabled="true">교수 서명관리 접속</a></div><p>담당교원은 학생이 본인서명을 완료한 교육TA 활동일지 내용을 확인한 뒤 선택하여 일괄서명합니다.</p>
 <div class="flow">
- <div class="step"><b>1. 학교메일 인증</b><br><code>@kw.ac.kr</code> 학교메일을 입력하면 인증용 접속링크가 발송됩니다.</div>
- <div class="step"><b>2. 담당 교육TA 확인</b><br>본인에게 배정된 학생·교과목·월별 활동일지만 표시됩니다.</div>
- <div class="step"><b>3. 활동내용 검토</b><br>학생명, 교과목, 근무일·근무시간·근무내용, 총 활동시간을 확인합니다.</div>
- <div class="step"><b>4. 선택 일괄서명</b><br>확인한 여러 건을 선택하고 교수 서명을 한 번 입력하여 일괄 반영합니다.</div>
- <div class="step"><b>5. 최종 PDF</b><br>서명 완료 즉시 기존 교육TA 양식 그대로 최종 PDF가 생성되고 사업단 관리자 화면에 자동 반영됩니다.</div>
+<div class="step"><b>1. 등록 이메일 인증</b><br>사업단 관리자가 교수별로 미리 등록한 이메일을 사용합니다. 학교메일·Gmail 등 이메일 종류는 구분하지 않습니다.</div>
+<div class="step"><b>2. 담당 교육TA 확인</b><br>인증된 이메일에 연결된 본인 담당 학생·교과목·월별 활동일지만 표시됩니다.</div>
+<div class="step"><b>3. 활동내용 검토</b><br>학생명, 교과목, 월 주요업무, 근무일·근무시간·근무내용, 총 활동시간을 확인합니다.</div>
+<div class="step"><b>4. 선택 일괄서명</b><br>확인한 여러 건을 선택하고 교수 서명을 한 번 입력하여 일괄 반영합니다.</div>
+<div class="step"><b>5. 최종 PDF</b><br>서명 완료 즉시 교육TA 양식에 학생·담당교원 서명이 반영된 최종 PDF가 생성되고 사업단 관리자 화면에 자동 반영됩니다.</div>
 </div>
-<div class="notice warn"><strong>실습TA는 별도 절차입니다.</strong><br>실습TA에는 담당교원 서명 단계가 없으며 사업단 제출 후 사업단장 서명으로 처리합니다.</div>
-<div class="actions">
- <a class="btn primary" href="https://script.google.com/macros/s/AKfycbwr1Taaixh4NWbB0wdA5HGGwRsTUoy2j-b-FoOjZK2LGHWq_kTuGGPfFO7SoT8Mvvxr/exec?page=professor" target="_blank" rel="noopener">교수 서명관리 접속</a>
- <a class="btn" href="./index.html">서식안내로 돌아가기</a>
-</div>
-<p class="small">※ 교수 서명관리 기능은 교육TA 전용입니다. 사업단 위임서명은 사업단 관리자 화면에서 별도로 처리합니다.</p>
-</section>
-</main>
-</body></html>
+<div class="notice"><strong>실습TA는 별도 절차입니다.</strong><br>실습TA에는 담당교원 서명 단계가 없으며 사업단 제출 후 사업단장 서명으로 처리합니다.</div>
+<div class="actions"><a class="btn" href="./index.html">서식안내로 돌아가기</a></div>
+<p id="setup" class="small">교수 서명관리 연결 주소 설정 전입니다. 사업단 관리자의 ‘접속링크 발송’을 이용할 수 있습니다.</p>
+<p class="small">※ 사업단 위임서명은 사업단 관리자 화면에서 별도로 처리하며, 최종 PDF에는 위임 여부·처리자 정보가 표시되지 않습니다.</p>
+</section></main>
+<script>
+// 교육TA 자료서버의 기존 /exec 주소 뒤에 ?professor=1을 붙여 입력하세요.
+const PROFESSOR_PORTAL_URL='';
+const portal=document.getElementById('portal'), setup=document.getElementById('setup');
+if(/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec\?professor=1$/.test(PROFESSOR_PORTAL_URL)){
+ portal.href=PROFESSOR_PORTAL_URL; portal.removeAttribute('aria-disabled'); setup.hidden=true;
+}else{
+ portal.removeAttribute('href'); portal.style.opacity='.55'; portal.style.cursor='not-allowed'; portal.title='교육TA 자료서버 웹앱 주소가 아직 연결되지 않았습니다.'; setup.textContent='교수 서명관리 링크 미설정: 교육TA_자료서버_서명관리의 기존 /exec 주소 뒤에 ?professor=1을 연결해야 합니다.';
+}
+
+</script></body></html>
