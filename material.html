@@ -8,7 +8,7 @@
 .signature img{width:130px;height:44px;object-fit:contain;vertical-align:middle}.signature img[hidden]{display:none}#signDialog{width:min(700px,95vw);max-width:700px}#signCanvas{width:100%;height:180px;border:1px solid #9bbacb;background:white;touch-action:none;cursor:crosshair}#signDialog label{display:flex;gap:8px;align-items:center}#signDialog input[type=checkbox]{width:20px;min-height:20px}#signError{color:#a84118;min-height:22px}#signatureStatus{color:#205674}button:disabled{opacity:.55;cursor:wait}@media print{.signature img{width:100px;height:34px}}
 .signature input{width:150px;display:inline-block;background:var(--yellow);border-bottom:1px solid #9bbacb;text-align:center}.signature .print-value{display:none}@media print{.signature .print-value{display:inline!important}}
 .step{background:white;border:1px solid #d1dee7;border-radius:8px;padding:16px 20px;margin:12px auto}.step h2,.step-heading h2{font-size:17px;margin:0 0 9px}.step-heading{padding-bottom:6px}.step label{display:block;font-weight:600;margin:8px 0 4px}.step input[type=email],.link-row input{border:1px solid #b2c5d3;border-radius:4px;padding:7px 9px;background:white}.step input[type=file]{margin:2px 0 5px}.step #save,.step #sign{margin-top:12px}.link-row{display:flex;gap:8px;align-items:center}.link-row input{min-width:0;flex:1}.link-row button{flex-shrink:0}.muted{color:#61798b;font-size:12px}.secondary-actions{display:flex;gap:8px;margin-top:10px}#status:not(:empty){padding:10px;background:#fff5e5;border-radius:4px}@media(max-width:650px){.step{margin:10px 12px;padding:14px}.link-row{flex-wrap:wrap}.link-row input{flex-basis:100%}}
-</style>
+.v3-director-approval{margin:14px 0 4px;text-align:right;font-size:13px;font-weight:650;break-inside:avoid;page-break-inside:avoid}\n@media print{.v3-director-approval{margin-top:12px;color:#222!important;break-inside:avoid}}\n</style>
 <style id="portal-navigation-style">#portal-navigation{box-sizing:border-box;display:flex;align-items:center;min-height:48px;padding:8px 20px;background:#fff;border-bottom:1px solid #dce4ea;font:14px/1.6 "Malgun Gothic","맑은 고딕",sans-serif}#portal-navigation a{color:#205674;text-decoration:none;padding:3px 4px}#portal-navigation a:hover{text-decoration:underline}#portal-navigation a:focus-visible{outline:3px solid #d69c23;outline-offset:2px}@media print{#portal-navigation{display:none!important}}</style>
 </head><body><nav id="portal-navigation" aria-label="사업단 서식안내"><a href="./index.html">← 사업단 서식안내</a><a href="./statistics.html?module=material" style="margin-left:auto">재료비 통계</a></nav>
 <header class="no-print" id="student"><h1>재료구입 신청서 작성</h1><p>신청서 작성 → 견적서 첨부·저장 → 교수 서명 요청 → 최종 제출</p></header>
@@ -16,7 +16,7 @@
 <div class="sheet-wrap"><main class="sheet"><form id="application" novalidate>
 <h2 class="title">재료구입 신청서</h2>
 <table aria-label="재료구입 신청서"><colgroup><col span="10" style="width:10%"></colgroup><tbody>
-<tr><td colspan="2" class="label">사업명</td><td colspan="4"><div class="fixed">로봇특성화대학사업단</div></td><td colspan="2" class="label">과제책임자</td><td colspan="2" class="responsible">사업단장<br>최용훈 (인)</td></tr>
+<tr><td colspan="2" class="label">사업명</td><td colspan="4"><div class="fixed">로봇특성화대학사업단</div></td><td colspan="2" class="label">과제책임자</td><td colspan="2" class="responsible">사업단장<br>최용훈</td></tr>
 <tr><td colspan="2" class="label">구분</td><td colspan="8" class="editing"><select id="category" aria-label="구분" required><option value="">선택하세요</option><option>교과</option><option>비교과</option><option>기타</option></select></td></tr>
 <tr><td colspan="2" class="label">교과목명 또는<br>비교과프로그램명</td><td colspan="8" class="editing"><textarea id="course" aria-label="교과목명 또는 비교과프로그램명" rows="2" maxlength="140" required></textarea></td></tr>
 <tr><td colspan="2" class="label">신청학생</td><td colspan="2" class="editing"><input id="studentName" aria-label="신청학생" maxlength="30" required></td><td colspan="2" class="label">담당교원</td><td colspan="4" class="editing"><input id="faculty" aria-label="담당교원" maxlength="50" required></td></tr>
@@ -28,7 +28,7 @@
 <p class="declaration">위와 같이 재료구입을 신청합니다.</p>
 <div class="date editing"><input id="applicationDate" type="date" aria-label="신청일" required></div>
 <p class="signature">로봇특성화대학사업단 참여교원: <input id="facultySign" aria-label="참여교원 이름" maxlength="50" placeholder="참여교원 이름"><span class="print-value"></span> <img id="signatureImage" alt="교수 전자서명" hidden> (인)</p>
-<p class="submit-note">교수 확인·서명을 저장하면 해당 신청서에 반영됩니다.</p>
+<p class="v3-director-approval">위의 내용을 승인합니다. 로봇특성화대학사업단장 최용훈 (인)</p><p class="submit-note">교수 확인·서명을 저장하면 해당 신청서에 반영됩니다.</p>
 </form></main></div>
 <section class="help no-print step" id="saveStage">
 <h2 id="modeTitle">2. 견적서 첨부·저장</h2>
