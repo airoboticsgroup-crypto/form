@@ -63,6 +63,7 @@ function renderForms(){
   head.append(headers);table.append(head);const body=el('tbody');
   const links={
     '양식 1':{url:'https://script.google.com/macros/s/AKfycbz9vxE2nLYTTMJTIh27Wy7HDM3DDDw_PN1ZtH_AEcNLSTK0_Aj1hbaLNdLlTnbTMMh5/exec',label:'교과개발계획서 관리자'},
+    '양식 8':{url:ADMIN_URL,label:'TA 활동일지 관리'},
     '양식 9':{url:'https://docs.google.com/spreadsheets/d/1QEFKLZYrYCU_t7qJZgbGJwl4T-HvG307vaSUpmfC3eI/edit',label:'출장 접수관리 시트'},
     '양식 10':{url:'https://script.google.com/macros/s/AKfycbyNs-WTyILJzHrxP9KC-2bmnSDuMzVzoKTZjzSAXF9oggfn9aUuG0rw_7sMSlyzRze4vA/exec',label:'재료비 관리자'}
   };
@@ -70,7 +71,7 @@ function renderForms(){
    const tr=el('tr'),entry=links[r.number],cell=el('td');
    tr.append(el('td','',r.number),el('td','',r.name));
    if(entry){const link=el('a','open',entry.label);link.href=entry.url;link.target='_blank';link.rel='noopener noreferrer';cell.append(link);}
-   else if(r.number==='양식 7'||r.number==='양식 8')cell.append(el('span','all-muted','통합관리자에서 관리'));
+   else if(r.number==='양식 7')cell.append(el('span','all-muted','통합관리자에서 관리'));
    else cell.append(el('span','all-muted','관리자 링크 준비 중'));
    tr.append(cell);body.append(tr);
   }
@@ -88,5 +89,8 @@ function renderForms(){
 }
 function setView(next){view=next;for(const id of ['all','student','professor','staff','admin'])document.querySelector('#view-'+id).setAttribute('aria-selected',String(id===next));renderForms();}
 for(const id of ['all','student','professor','staff','admin'])document.querySelector('#view-'+id).addEventListener('click',()=>setView(id));
-document.querySelector('#form-search').addEventListener('input',renderForms);renderForms();
+document.querySelector('#form-search').addEventListener('input',renderForms);
+const initialView=(new URLSearchParams(window.location.search).get('view')||window.location.hash.replace(/^#/,'' )).toLowerCase();
+if(['all','student','professor','staff','admin'].includes(initialView))setView(initialView);
+else renderForms();
 </script></body></html>
