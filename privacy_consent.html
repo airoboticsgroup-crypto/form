@@ -104,6 +104,29 @@ h1{font-size:23px;letter-spacing:-.045em;text-align:center;margin:18px 0 18px;co
  .date-line{margin-top:21px}
  .recipient{margin-top:13px}
 }
+/* 양식 15: A4 한 페이지 활용 및 원본 본문 약 10pt */
+.paper{display:flex;flex-direction:column}
+.paper form{display:flex;flex-direction:column;flex:1}
+.paper .date-line{margin-top:auto}
+.paper .recipient{margin-bottom:3mm}
+.honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;opacity:0!important}
+@media print{
+ .paper{height:297mm;min-height:297mm;max-height:none;overflow:visible;padding:12mm 13mm 12mm}
+ .paper form{flex:1}
+ .paper .date-line{margin-top:auto}
+ .clause{font-size:13.333px;line-height:1.55;margin-bottom:9px}
+ .subclause{padding-left:14px}
+ .subclause.indent{padding-left:19px}
+ .field label,.field .field-title{font-size:12.67px}
+ .field .print-value{font-size:12.67px}
+ .section-label{font-size:13.333px;margin:14px 0 8px}
+ .decisions{margin-top:13px;gap:10px}
+ .decision,.decision strong{font-size:12.67px}
+ .ack{font-size:12px}
+ .date-line{font-size:15px}
+ .recipient{font-size:15px}
+ .honeypot{display:none!important}
+}
 </style>
 </head>
 <body>
@@ -113,7 +136,8 @@ h1{font-size:23px;letter-spacing:-.045em;text-align:center;margin:18px 0 18px;co
   <div class="toolbar-actions">
    <a href="./index.html">서식 목록으로 돌아가기</a>
    <button type="button" id="resetForm">다시 작성</button>
-   <button type="button" id="printForm" class="primary">인쇄 · PDF 저장</button>
+   <button type="submit" form="consentForm" id="saveSubmit" class="primary">저장 및 제출</button>
+   <button type="button" id="printForm">PDF 인쇄 미리보기</button>
   </div>
  </div>
 </div>
@@ -124,7 +148,11 @@ h1{font-size:23px;letter-spacing:-.045em;text-align:center;margin:18px 0 18px;co
    <span class="brand">광운대학교 · 로봇특성화대학사업단</span>
   </div>
   <h1>개인정보 이용 동의서</h1>
-  <form id="consentForm" autocomplete="off">
+  <form id="consentForm" autocomplete="off" method="post" target="_blank" accept-charset="UTF-8">
+   <input type="hidden" name="version" value="1">
+   <input type="hidden" name="signatureData" id="signatureData">
+   <input type="hidden" name="submissionId" id="submissionId">
+   <input type="text" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" class="honeypot">
    <div class="identity" aria-label="동의자 인적사항">
     <div class="field"><label for="organization">소속 기관</label><input id="organization" name="organization" maxlength="100" placeholder="소속 기관" required><span class="print-value" id="pvOrganization"></span></div>
     <div class="field"><label for="fullName">성명</label><input id="fullName" name="fullName" maxlength="50" placeholder="성명" required><span class="print-value" id="pvName"></span></div>
@@ -157,16 +185,20 @@ h1{font-size:23px;letter-spacing:-.045em;text-align:center;margin:18px 0 18px;co
      <label><input type="radio" name="shareConsent" value="동의하지 않음" required> 동의하지 않습니다</label>
     </div><span class="print-choice" id="pvShare" style="display:none"></span></div>
    </div>
-   <label class="ack"><input type="checkbox" id="acknowledge" required><span>위 동의사항, 개인정보 보유기간 및 동의 거부에 관한 안내를 확인했습니다.</span></label>
-   <div class="date-line"><label for="signedDate" class="no-print">작성일 </label><input class="no-print" type="date" id="signedDate" required><span class="print-value" id="pvSignedDate"></span></div>
+   <label class="ack"><input type="checkbox" id="acknowledge" name="acknowledge" value="yes" required><span>위 동의사항, 개인정보 보유기간 및 동의 거부에 관한 안내를 확인했습니다.</span></label>
+   <label class="ack"><input type="checkbox" id="selfAttested" name="selfAttested" value="yes" required><span>본인이 직접 내용을 작성하고 자필서명했음을 확인합니다.</span></label>
+   <div class="date-line"><label for="signedDate" class="no-print">작성일 </label><input class="no-print" type="date" id="signedDate" name="signedDate" required><span class="print-value" id="pvSignedDate"></span></div>
    <div class="recipient">광운대학교 산학협력단장 귀하</div>
   </form>
  </article>
- <p class="notice"><strong>작성·저장 안내:</strong> 이 페이지는 입력값이나 서명을 서버로 전송하거나 브라우저에 저장하지 않습니다. <strong>인쇄 · PDF 저장</strong>을 눌러 A4 PDF로 저장한 뒤 사업단의 안내에 따라 제출하세요. 동의서 문구에 기재된 주민등록번호·금융정보는 이 HTML에서 입력받지 않습니다. 자동 접수 및 사업단 Drive 저장은 아직 연결되지 않았습니다.</p>
+ <p class="notice"><strong>저장 및 제출:</strong> 접수 서버가 연결되면 필수항목과 본인서명을 입력한 뒤 <strong>저장 및 제출</strong>을 누르세요. 새로운 탭에 실제 PDF 저장 결과가 표시됩니다. 저장된 PDF는 사업단 지정 Drive 폴더에서 관리됩니다. 주민등록번호·계좌번호는 이 화면에서 수집하지 않습니다. 브라우저 자동저장 기능은 사용하지 않습니다.</p>
 </main>
 <script>
 'use strict';
 (function(){
+ // 배포한 전용 Apps Script 웹앱 주소만 이 상수에 등록합니다.
+ // 아직 서버 미배포 상태에서는 제출을 비활성화하고 미리보기만 허용합니다.
+ const F15_UPLOAD_URL='';
  const byId=id=>document.getElementById(id);
  const form=byId('consentForm'), canvas=byId('signature'),ctx=canvas.getContext('2d',{willReadFrequently:false}),status=byId('status');
  let drawing=false,drawn=false,last=null;
@@ -187,6 +219,22 @@ h1{font-size:23px;letter-spacing:-.045em;text-align:center;margin:18px 0 18px;co
   if(drawn)byId('signImage').src=canvas.toDataURL('image/png');
  }
  function report(text,error){status.textContent=text;status.className='status'+(error?' error':'');}
+ function makeId(){const bytes=new Uint8Array(16);crypto.getRandomValues(bytes);return 'f15-'+Array.from(bytes,b=>b.toString(16).padStart(2,'0')).join('');}
+ const validEndpoint=()=>/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(F15_UPLOAD_URL);
+ form.addEventListener('submit',event=>{
+  if(!validEndpoint()){event.preventDefault();report('현재 자동접수 서버 연결 전입니다. 관리자 배포가 완료된 뒤 제출할 수 있습니다.',true);return;}
+  if(!drawn){event.preventDefault();report('자필서명을 입력하세요.',true);return;}
+  if(!form.reportValidity()){event.preventDefault();report('필수항목과 동의 여부를 확인하세요.',true);return;}
+  if(!byId('submissionId').value)byId('submissionId').value=makeId();
+  byId('signatureData').value=canvas.toDataURL('image/png');
+  syncPrint();form.action=F15_UPLOAD_URL;
+  report('접수 요청을 보냈습니다. 새 탭에 PDF 저장 완료 또는 오류가 표시되는지 확인하세요.');
+ });
+ if(!validEndpoint()){
+  byId('saveSubmit').disabled=true;
+  byId('saveSubmit').title='자동접수 서버 배포 후 이용 가능합니다';
+  report('PDF 접수 서버 연결 대기 중 · 현재는 인쇄 미리보기만 가능합니다.');
+ }
  byId('printForm').addEventListener('click',()=>{
   if(!form.reportValidity()){report('필수 항목과 동의 여부를 모두 입력하세요.',true);return;}
   if(!drawn){report('서명란에 자필서명을 입력하세요.',true);canvas.focus();return;}
@@ -195,7 +243,7 @@ h1{font-size:23px;letter-spacing:-.045em;text-align:center;margin:18px 0 18px;co
  });
  byId('resetForm').addEventListener('click',()=>{
   if(!window.confirm('입력 내용과 서명을 모두 지울까요?'))return;
-  form.reset();clearSignature();setDate();report('');
+  form.reset();clearSignature();byId('submissionId').value='';byId('signatureData').value='';setDate();report('');
  });
  function setDate(){
   const parts=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
