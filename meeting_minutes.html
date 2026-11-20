@@ -45,6 +45,10 @@ th:nth-child(1){width:7%}th:nth-child(2){width:24%}th:nth-child(3){width:15%}th:
 td input{border:0!important;border-radius:0!important;padding:5px 3px!important;font-size:11px;text-align:center;min-height:27px}
 tr.attendee-row{height:34px}
 .hint{margin:10px 0 0;font-size:11px;color:#4e6258;line-height:1.7;word-break:keep-all}
+.receipt-link{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0 3px}
+.receipt-link a{display:inline-flex;align-items:center;padding:8px 12px;border:1px solid #c0d6c8;border-radius:6px;background:#edf6f0;color:#16563d;text-decoration:none;font-size:12px;font-weight:700}
+.receipt-link a:hover{background:#e1f0e6}
+.receipt-link small{font-size:11px;color:#536c60}
 .status{min-height:18px;color:#e1f4e5;font-size:12px}
 .status.error{color:#ffd7bf}
 .print-only,.print-choice{display:none}
@@ -176,6 +180,7 @@ tr.attendee-row{height:34px}
     </table>
    </div>
    <p class="hint">※ 세부내역 영수증 첨부 매장 : 편의점, 카페, 결재대행 및 결재솔루션, 운영법인명, 백화점, 쇼핑몰</p>
+   <div class="receipt-link no-print"><a href="https://drive.google.com/drive/folders/1DoEfIS6IbL0UVxJoGUHta8tdcI4-yx3H" target="_blank" rel="noopener noreferrer">영수증 첨부 Drive 폴더 열기</a><small>파일 업로드는 해당 폴더의 Google Drive 공유 권한에 따릅니다.</small></div>
   </form>
  </article>
 </main>
