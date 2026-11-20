@@ -77,7 +77,8 @@ function renderForms(){
     '양식 7':{url:'https://script.google.com/macros/s/AKfycbz5x7vUrn7bF1bwchTzABtIvHIo_hYN7yokOrSJOY_ye27nz5b6X0yydHPuc1eTw1IHTA/exec',label:'TA추천서 관리'},
     '양식 8':{url:ADMIN_URL+'?taOnly=1',label:'TA 활동일지 관리'},
     '양식 9':{url:'https://docs.google.com/spreadsheets/d/1QEFKLZYrYCU_t7qJZgbGJwl4T-HvG307vaSUpmfC3eI/edit',label:'출장 접수관리 시트'},
-    '양식 10':{url:'https://script.google.com/macros/s/AKfycbyNs-WTyILJzHrxP9KC-2bmnSDuMzVzoKTZjzSAXF9oggfn9aUuG0rw_7sMSlyzRze4vA/exec',label:'재료비 관리자'}
+    '양식 10':{url:'https://script.google.com/macros/s/AKfycbyNs-WTyILJzHrxP9KC-2bmnSDuMzVzoKTZjzSAXF9oggfn9aUuG0rw_7sMSlyzRze4vA/exec',label:'재료비 관리자'},
+    '양식 15':{url:'https://drive.google.com/drive/folders/1qxfFfaTwqEJBSN75PcotlcnUfiex7VnD',label:'개인정보 이용 동의서 관리 폴더'}
   };
   for(const r of formRows.filter(x=>/^양식 [0-9]+$/.test(x.number))){
    const tr=el('tr'),entry=links[r.number],cell=el('td');
