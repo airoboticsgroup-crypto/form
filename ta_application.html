@@ -143,7 +143,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   <img id="teacherSignPreview" alt="첨부한 서명 이미지 미리보기" hidden><p class="small-sign-note">PNG 또는 JPG · 2MB 이하</p></div>
  <p id="teacherSignError" class="sign-error" role="alert" hidden></p>
 </section>
-<div class="email-row"><label for="teacherEmail">이메일 (접수 확인용 · 선택)</label><input id="teacherEmail" type="email" maxlength="120" placeholder="학교메일 또는 Gmail" autocomplete="email" inputmode="email"></div>
+
 <div class="director">위의 내용을 승인합니다. 로봇특성화대학사업단장 최용훈 (인)</div>
 </section>
 <div class="note screen-only"><strong>제출 안내</strong> · 교과목 TA 또는 실습 TA를 반드시 선택하고 참여율을 선택하세요. 개인정보 이용 동의서는 사업단에 별도 제출해야 합니다. 추천서 제출 시 이 안내를 확인한 것으로 처리합니다. 주민등록번호는 웹에서 수집하지 않으며, 은행·계좌는 선택 입력입니다. 사업단장 서명과 최종 PDF 저장은 관리자가 처리합니다.</div>
@@ -368,11 +368,11 @@ $('taForm').addEventListener('submit',async ev=>{
   if(!usedItems.length)throw new Error('TA 추천정보를 최소 1명 입력하세요.');
   const students=usedItems.map(studentData);clientValidate(students,usedItems);
   const professorName=$('teacherName').value.trim();if(!professorName)throw new Error('하단의 참여교원 성명을 입력하세요.');
-  const professorEmail=$('teacherEmail').value.trim();const date=$('applicationDate').value;if(!date)throw new Error('신청일을 입력하세요.');
-  if(professorEmail&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(professorEmail))throw Error('하단 이메일 주소 형식을 확인하세요.');
+  const date=$('applicationDate').value;if(!date)throw new Error('신청일을 입력하세요.');
+
   const sig=teacherSignature();
   submitBusy=true;$('submitForm').disabled=true;$('submitForm').textContent='접수 서버로 이동 중...';
-  submitToAppsScript({professorName,email:professorEmail,date,students,nonce,...sig});
+  submitToAppsScript({professorName,date,students,nonce,...sig});
  }catch(e){message('submitMessage',e.message||String(e),'error');$('submitForm').disabled=false;$('submitForm').textContent='추천서 제출';submitBusy=false;}
 });
 (function init(){const d=new Date(),z=n=>String(n).padStart(2,'0');$('applicationDate').value=d.getFullYear()+'-'+z(d.getMonth()+1)+'-'+z(d.getDate());for(let i=0;i<3;i++)addStudent();syncPrintFooter();populatePrintLayers()})();
