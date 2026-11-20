@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2027년 TA 활동일지 · Google 로그인</title>
+<style>
+body{margin:0;background:#f3f7f5;font:15px/1.6 system-ui,'Malgun Gothic',sans-serif;color:#1b3a30}
+main{max-width:520px;margin:45px auto;padding:26px;background:#fff;border:1px solid #dce9df;border-radius:12px}
+h1{font-size:23px}p{color:#4c6257}button{display:inline-block;padding:12px 18px;border:0;border-radius:7px;background:#146544;color:#fff;cursor:pointer;font:inherit;font-weight:700;margin:6px 7px 6px 0}button:disabled{background:#c4d1cb;cursor:default}#status{white-space:pre-line;padding:12px;border-radius:7px;background:#ecf6ef}#status.error{background:#fff0ea;color:#9e3c2c}small{color:#63786b}
+</style>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body><main>
+<h1>2027학년도 TA 활동일지</h1>
+<p>사업단 통합관리자 명단에 등록된 Google 계정으로 로그인하세요. 학생은 본인 활동일지만 열 수 있습니다.</p>
+<div><button id="google" type="button">Google 계정으로 로그인</button><button id="open" type="button" disabled>활동일지 열기</button></div>
+<p id="status" role="status" aria-live="polite">Google 계정 로그인 전</p>
+<small>2026년 TA 시스템과 기존 관리자 화면은 변경되지 않습니다.</small>
+</main>
+<script>
+'use strict';
+// Google Cloud > Google Auth Platform > Clients에서 발급한 웹 애플리케이션 클라이언트 ID
+const CLIENT_ID='REPLACE_WITH_GOOGLE_OAUTH_WEB_CLIENT_ID';
+// 사업단 2027년 TA활동일지_관리_27의 별도 학생 웹앱. 기존 2026 링크는 유지합니다.
+const STUDENT_WEBAPP='https://script.google.com/macros/s/AKfycbw0GsCw_znFvNw3Xs9KpJAQTfw6KLaIefYaLzztgZtnAOXIlgVc94Z6LnsSvO0RGi8kJQ/exec';
+let oauthClient=null,accessToken='',expiresAt=0;
+const $=id=>document.getElementById(id);
+function note(s,bad){$('status').textContent=s;$('status').classList.toggle('error',!!bad);}
+function ready(){
+ if(!/^[0-9]+-[a-z0-9]+\.apps\.googleusercontent\.com$/.test(CLIENT_ID)){
+  $('google').disabled=true;
+  note('로그인 준비 중: Google OAuth 웹 클라이언트 ID가 아직 설정되지 않았습니다.',true);return;
+ }
+ if(!window.google?.accounts?.oauth2){note('Google 로그인 모듈을 불러오지 못했습니다. 새로고침하세요.',true);return;}
+ oauthClient=google.accounts.oauth2.initTokenClient({client_id:CLIENT_ID,scope:'openid email',
+ callback:r=>{
+   if(r.error||!r.access_token){note('Google 로그인 실패: '+(r.error||'취소됨'),true);return;}
+   accessToken=r.access_token;expiresAt=Date.now()+Math.max(0,Number(r.expires_in||0))*1000;
+   $('open').disabled=false;note('Google 로그인 완료. 활동일지 열기를 누르세요.');
+ }});
+ $('google').onclick=()=>oauthClient.requestAccessToken({prompt:'select_account'});
+ $('open').onclick=()=>{
+   if(!accessToken||Date.now()>expiresAt-30000){$('open').disabled=true;note('Google 로그인 유효시간이 지났습니다. 다시 로그인하세요.',true);return;}
+   // 액세스 토큰을 URL이 아닌 POST 본문으로만 전송합니다.
+   const f=document.createElement('form');f.method='post';f.action=STUDENT_WEBAPP;f.target='_blank';f.style.display='none';
+   const t=document.createElement('input');t.type='hidden';t.name='ta27AccessToken';t.value=accessToken;
+   f.append(t);document.body.append(f);f.submit();f.remove();
+   // 토큰을 저장소에 넣지 않습니다. 새로고침하면 로그인 상태가 초기화됩니다.
+ };
+}
+window.addEventListener('load',ready);
+</script></body></html>
