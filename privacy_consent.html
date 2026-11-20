@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>양식 15 · 개인정보 이용 동의서 | 로봇특성화대학사업단</title>
+<style>
+:root{font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;color:#1d3345;background:#f2f5f7;font-size:14px}
+*{box-sizing:border-box}
+body{margin:0}
+button,input{font:inherit}
+button{cursor:pointer}
+button:disabled{opacity:.5;cursor:not-allowed}
+a{color:#14675b}
+:focus-visible{outline:3px solid #d8a441;outline-offset:2px}
+.toolbar{width:100%;background:#183d35;color:#fff}
+.toolbar-inner{max-width:1180px;margin:0 auto;padding:10px 18px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.toolbar strong{font-size:16px}
+.toolbar a{color:#e3f6ef;text-decoration:none;font-size:13px}
+.toolbar-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+button{border:1px solid #a3bfba;border-radius:6px;padding:9px 13px;background:white;color:#165d51;font-weight:700}
+button.primary{background:#16705e;border-color:#16705e;color:#fff}
+button:hover{filter:brightness(.96)}
+main{padding:22px 16px 36px}
+.paper{width:min(100%,210mm);min-height:297mm;margin:0 auto;background:#fff;border:1px solid #dae4e2;border-radius:7px;box-shadow:0 5px 24px #153d3512;padding:12mm 13mm 11mm}
+.document-top{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:0 0 9px;border-bottom:2px solid #244c5e}
+.document-top .form-number{font-size:11px;color:#455e70;font-weight:700}
+.document-top .brand{font-size:13px;color:#264a5c;font-weight:700}
+h1{font-size:23px;letter-spacing:-.045em;text-align:center;margin:18px 0 18px;color:#162f44}
+.identity{display:grid;grid-template-columns:1.25fr 1fr .85fr 1.12fr 1.6fr;border:1px solid #65798a;margin-bottom:15px}
+.field{min-width:0;border-right:1px solid #65798a;display:flex;flex-direction:column}
+.field:last-child{border-right:0}
+.field label,.field .field-title{font-weight:700;text-align:center;background:#edf2f5;color:#294657;padding:7px 3px;border-bottom:1px solid #65798a;font-size:12px}
+.field input{width:100%;min-width:0;background:white;border:0;border-radius:0;padding:10px 7px;text-align:center;height:62px;color:#142b3b}
+.field input::placeholder{color:#98a5ae;font-size:11px}
+.field input[type=date]{font-size:12px}
+.print-value{display:none}
+.sign-field{position:relative}
+.signature-pad{height:62px;padding:4px 5px;display:flex;align-items:center;justify-content:center}
+.signature-pad canvas{width:100%;height:53px;display:block;touch-action:none;background:white;cursor:crosshair}
+.signature-pad img{display:none;width:100%;height:53px;object-fit:contain}
+.section-label{font-weight:800;margin:14px 0 8px;font-size:14px;color:#203a4f}
+.clause{font-size:12px;line-height:1.7;color:#182c3a;margin:0 0 9px;word-break:keep-all;overflow-wrap:anywhere}
+.clause p{margin:0 0 4px}
+.subclause{padding-left:13px}
+.subclause .indent{padding-left:18px}
+.decisions{border:1px solid #b7cbd2;background:#f9fbfc;border-radius:6px;padding:11px 13px;margin-top:13px;display:grid;gap:12px}
+.decision{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:12px}
+.decision strong{font-size:12px}
+.options{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.options label{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;cursor:pointer}
+.options input{accent-color:#166758;width:16px;height:16px;margin:0}
+.ack{margin:9px 0 0;display:flex;gap:8px;align-items:flex-start;font-size:12px;line-height:1.5}
+.ack input{margin:3px 0 0;accent-color:#166758}
+.signature-help{font-size:12px;color:#63798a;margin:7px 0 0;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.signature-help button{padding:5px 10px;font-size:12px}
+.date-line{text-align:center;margin-top:23px;font-size:14px}
+.recipient{text-align:center;margin-top:15px;font-size:14px;font-weight:700}
+.notice{max-width:210mm;margin:12px auto 0;font-size:12px;line-height:1.65;color:#586c79}
+.notice strong{color:#234955}
+.status{min-height:22px;margin:4px 0 0;color:#dcf3e9;font-size:12px;max-width:100%}
+.status.error{color:#ffe3cd}
+@media(max-width:700px){
+ .toolbar-inner{align-items:flex-start}
+ .toolbar-actions{width:100%}
+ main{padding:12px 10px 24px}
+ .paper{min-height:0;padding:20px 14px;border-radius:7px}
+ h1{font-size:21px}
+ .identity{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .field{border-bottom:1px solid #65798a}
+ .field:nth-child(2),.field:nth-child(4){border-right:0}
+ .field:last-child{grid-column:1/-1;border-bottom:0}
+ .field input{height:47px}
+ .signature-pad{height:76px}
+ .signature-pad canvas{height:66px}
+ .clause{font-size:12px;line-height:1.75}
+ .document-top .brand{font-size:11px}
+ .decision{align-items:flex-start}
+}
+@page{size:A4 portrait;margin:0}
+@media print{
+ html,body{margin:0;padding:0;background:#fff;width:210mm;height:auto;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .toolbar,.notice,.signature-help,.no-print{display:none!important}
+ main{padding:0;margin:0}
+ .paper{width:210mm;min-height:297mm;max-height:297mm;margin:0;border:0;border-radius:0;box-shadow:none;padding:12mm 13mm 10mm;overflow:hidden}
+ .document-top{padding-bottom:7px}
+ h1{font-size:21px;margin:15px 0 16px}
+ .identity{grid-template-columns:1.25fr 1fr .85fr 1.12fr 1.6fr}
+ .field{border-bottom:0!important;border-right:1px solid #65798a!important;grid-column:auto!important}
+ .field:last-child{border-right:0!important}
+ .field input,.signature-pad canvas{display:none!important}
+ .field .print-value{min-height:62px;display:flex;align-items:center;justify-content:center;text-align:center;padding:7px;font-size:11px;overflow-wrap:anywhere}
+ .signature-pad{height:62px}
+ .signature-pad img{display:block!important;height:52px}
+ .clause{font-size:11.5px;line-height:1.65;margin-bottom:7px}
+ .section-label{margin:12px 0 7px}
+ .decisions{padding:9px 12px;gap:9px;margin-top:10px}
+ .decision{font-size:11px}
+ .decision .options{display:none!important}
+ .decision .print-choice{display:inline!important;font-weight:700}
+ .ack{font-size:11px}
+ .ack input{width:12px;height:12px}
+ .date-line{margin-top:21px}
+ .recipient{margin-top:13px}
+}
+</style>
+</head>
+<body>
+<div class="toolbar">
+ <div class="toolbar-inner">
+  <div><strong>양식 15 · 개인정보 이용 동의서</strong><div class="status" id="status" role="status" aria-live="polite"></div></div>
+  <div class="toolbar-actions">
+   <a href="./index.html">서식 목록으로 돌아가기</a>
+   <button type="button" id="resetForm">다시 작성</button>
+   <button type="button" id="printForm" class="primary">인쇄 · PDF 저장</button>
+  </div>
+ </div>
+</div>
+<main>
+ <article class="paper" aria-label="개인정보 이용 동의서 A4">
+  <div class="document-top">
+   <span class="form-number">첨부 · 양식 15.</span>
+   <span class="brand">광운대학교 · 로봇특성화대학사업단</span>
+  </div>
+  <h1>개인정보 이용 동의서</h1>
+  <form id="consentForm" autocomplete="off">
+   <div class="identity" aria-label="동의자 인적사항">
+    <div class="field"><label for="organization">소속 기관</label><input id="organization" name="organization" maxlength="100" placeholder="소속 기관" required><span class="print-value" id="pvOrganization"></span></div>
+    <div class="field"><label for="fullName">성명</label><input id="fullName" name="fullName" maxlength="50" placeholder="성명" required><span class="print-value" id="pvName"></span></div>
+    <div class="field"><label for="position">직급</label><input id="position" name="position" maxlength="50" placeholder="직급·신분" required><span class="print-value" id="pvPosition"></span></div>
+    <div class="field"><label for="birthDate">생년월일</label><input id="birthDate" name="birthDate" type="date" required><span class="print-value" id="pvBirth"></span></div>
+    <div class="field sign-field"><span class="field-title">서명</span><div class="signature-pad"><canvas id="signature" width="300" height="100" aria-label="자필서명 입력 영역"></canvas><img id="signImage" alt="동의자 자필서명"></div></div>
+   </div>
+   <div class="signature-help no-print"><span>서명란에 마우스 또는 손가락으로 직접 서명하세요.</span><button id="clearSignature" type="button">서명 지우기</button></div>
+   <div class="section-label">개인정보 수집·이용 및 제공에 관한 사항</div>
+   <div class="clause">
+    <p><strong>1.</strong> 본인은 광운대학교 산학협력단이 첨단산업특성화대학재정지원사업(로봇)과 관련하여 다음 각 호의 정보를 수집·이용하는 것에 동의합니다.</p>
+    <div class="subclause"><strong>가. 수집·이용 목적</strong></div>
+    <div class="subclause indent">① 참여 제한 기간에 있는지를 비롯하여 채무불이행 정보 등 신용 조회, 기타 사전 지원제외 대상 여부의 확인</div>
+    <div class="subclause indent">② 과제 선정, 보고서 제출, 기술료 납부 등 과제의 선정·평가 및 관리</div>
+    <div class="subclause indent">③ 총괄책임자와 참여연구원의 사업비 사용 및 기술개발과제 수행의 적법·적정성 평가를 위한 관리</div>
+    <div class="subclause indent">④ 국가연구개발사업의 참여 제한 등 사후관리</div>
+    <div class="subclause"><strong>나. 수집하는 개인정보의 항목</strong></div>
+    <div class="subclause indent">이름, 주민등록번호 또는 여권번호, 직장 주소 또는 자택 주소, 소속, 경력(기간, 직위 등), 사업비 지출을 위한 신용카드 및 금융거래 내역, 채무불이행 정보 등 재무 건전성 여부를 확인하기 위한 신용정보 등</div>
+   </div>
+   <div class="clause"><p><strong>2.</strong> 본인은 광운대학교 산학협력단이 본인의 개인정보를 동의서가 작성된 때로부터 제1항의 사용 목적이 종료되는 때(참여 제한의 경우는 5년)까지 보유하는 데 동의합니다.</p></div>
+   <div class="clause"><p><strong>3.</strong> 본인은 제1항의 정보를 비롯하여 과제 수행과정에서 추가로 제공되는 참여 제한 정보 등을 과학기술기본법, 산업기술혁신 촉진법 등 관련 법령 및 국가연구개발사업 관련 규정에 따라 각 중앙행정기관의 장이나 관계기관에 제공하는 것에 동의합니다.</p></div>
+   <div class="clause"><p><strong>4.</strong> 본인은 상기 개인정보의 수집에 대하여 거부할 권리가 있으며, 동의를 거부하면 연구원 명단에서 제외되거나 과제 심사과정에서 불리한 평가를 받을 수 있다는 사실을 인지한 상태에서 작성한 것임을 확인합니다.</p></div>
+   <div class="decisions">
+    <div class="decision"><strong>개인정보 수집·이용에 동의하십니까?</strong><div class="options">
+     <label><input type="radio" name="collectConsent" value="동의함" required> 동의합니다</label>
+     <label><input type="radio" name="collectConsent" value="동의하지 않음" required> 동의하지 않습니다</label>
+    </div><span class="print-choice" id="pvCollect" style="display:none"></span></div>
+    <div class="decision"><strong>제3항에 따른 개인정보 제공에 동의하십니까?</strong><div class="options">
+     <label><input type="radio" name="shareConsent" value="동의함" required> 동의합니다</label>
+     <label><input type="radio" name="shareConsent" value="동의하지 않음" required> 동의하지 않습니다</label>
+    </div><span class="print-choice" id="pvShare" style="display:none"></span></div>
+   </div>
+   <label class="ack"><input type="checkbox" id="acknowledge" required><span>위 동의사항, 개인정보 보유기간 및 동의 거부에 관한 안내를 확인했습니다.</span></label>
+   <div class="date-line"><label for="signedDate" class="no-print">작성일 </label><input class="no-print" type="date" id="signedDate" required><span class="print-value" id="pvSignedDate"></span></div>
+   <div class="recipient">광운대학교 산학협력단장 귀하</div>
+  </form>
+ </article>
+ <p class="notice"><strong>작성·저장 안내:</strong> 이 페이지는 입력값이나 서명을 서버로 전송하거나 브라우저에 저장하지 않습니다. <strong>인쇄 · PDF 저장</strong>을 눌러 A4 PDF로 저장한 뒤 사업단의 안내에 따라 제출하세요. 동의서 문구에 기재된 주민등록번호·금융정보는 이 HTML에서 입력받지 않습니다. 자동 접수 및 사업단 Drive 저장은 아직 연결되지 않았습니다.</p>
+</main>
+<script>
+'use strict';
+(function(){
+ const byId=id=>document.getElementById(id);
+ const form=byId('consentForm'), canvas=byId('signature'),ctx=canvas.getContext('2d',{willReadFrequently:false}),status=byId('status');
+ let drawing=false,drawn=false,last=null;
+ ctx.strokeStyle='#193b56';ctx.fillStyle='#193b56';ctx.lineWidth=2.8;ctx.lineCap='round';ctx.lineJoin='round';
+ const point=ev=>{const r=canvas.getBoundingClientRect();return {x:(ev.clientX-r.left)*canvas.width/r.width,y:(ev.clientY-r.top)*canvas.height/r.height};};
+ const begin=ev=>{ev.preventDefault();drawing=true;canvas.setPointerCapture(ev.pointerId);last=point(ev);drawn=true;ctx.beginPath();ctx.arc(last.x,last.y,1.4,0,Math.PI*2);ctx.fill();};
+ const move=ev=>{if(!drawing)return;ev.preventDefault();const p=point(ev);ctx.beginPath();ctx.moveTo(last.x,last.y);ctx.lineTo(p.x,p.y);ctx.stroke();last=p;};
+ const end=ev=>{if(!drawing)return;drawing=false;last=null;if(canvas.hasPointerCapture(ev.pointerId))canvas.releasePointerCapture(ev.pointerId);syncPrint();};
+ canvas.addEventListener('pointerdown',begin);canvas.addEventListener('pointermove',move);canvas.addEventListener('pointerup',end);canvas.addEventListener('pointercancel',end);
+ function clearSignature(){ctx.clearRect(0,0,canvas.width,canvas.height);drawn=false;byId('signImage').removeAttribute('src');}
+ byId('clearSignature').addEventListener('click',clearSignature);
+ function koreaDate(d){if(!d)return '';const v=d.split('-');return v.length===3?v[0]+'년 '+Number(v[1])+'월 '+Number(v[2])+'일':d;}
+ function syncPrint(){
+  for(const [id,out] of [['organization','pvOrganization'],['fullName','pvName'],['position','pvPosition']])byId(out).textContent=byId(id).value.trim();
+  byId('pvBirth').textContent=byId('birthDate').value.replace(/-/g,'.');
+  byId('pvSignedDate').textContent=koreaDate(byId('signedDate').value);
+  for(const [name,out] of [['collectConsent','pvCollect'],['shareConsent','pvShare']]){const checked=form.querySelector('input[name="'+name+'"]:checked');byId(out).textContent=checked?checked.value:'미선택';}
+  if(drawn)byId('signImage').src=canvas.toDataURL('image/png');
+ }
+ function report(text,error){status.textContent=text;status.className='status'+(error?' error':'');}
+ byId('printForm').addEventListener('click',()=>{
+  if(!form.reportValidity()){report('필수 항목과 동의 여부를 모두 입력하세요.',true);return;}
+  if(!drawn){report('서명란에 자필서명을 입력하세요.',true);canvas.focus();return;}
+  syncPrint();report('인쇄 창에서 대상 프린터로 “PDF로 저장”을 선택하세요.');
+  window.print();
+ });
+ byId('resetForm').addEventListener('click',()=>{
+  if(!window.confirm('입력 내용과 서명을 모두 지울까요?'))return;
+  form.reset();clearSignature();setDate();report('');
+ });
+ function setDate(){
+  const parts=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
+  const values={};for(const p of parts)values[p.type]=p.value;
+  byId('signedDate').value=values.year+'-'+values.month+'-'+values.day;
+ }
+ window.addEventListener('beforeprint',syncPrint);
+ window.addEventListener('afterprint',()=>report('인쇄·PDF 저장 여부를 확인하세요.'));
+ setDate();
+})();
+</script>
+</body>
+</html>
