@@ -296,11 +296,11 @@ function populatePrintLayers(){
  const date=$('applicationDate').value;
  const dateValue=/^\d{4}-\d{2}-\d{2}$/.test(date)?date.slice(0,4)+'년 '+date.slice(5,7)+'월 '+date.slice(8,10)+'일':'';
  const teacher=$('teacherName').value.trim();
+ const signedImage=teacherMode()==='draw'?(teacherHasStroke?teacherCanvas.toDataURL('image/png'):''):teacherImage;
  for(let pg=0;pg<pagesArr.length;pg++){
   if(dateValue){const mask=document.createElement('div');mask.style.cssText='position:absolute;left:251pt;top:684pt;width:101pt;height:20pt;background:white;';overlays[pg].append(mask);add(pg,dateValue,255.3,688.2,95,9.7);}
   if(teacher)add(pg,teacher,445.2,706.3,44,9.5);
-  const sign=teacherMode()==='draw'?(teacherHasStroke?teacherCanvas.toDataURL('image/png'):''):teacherImage;
-  if(sign&&overlays[pg]){const im=document.createElement('img');im.alt='참여교원 서명';im.src=sign;im.style.cssText='position:absolute;left:483pt;top:698pt;width:32pt;height:25pt;object-fit:contain;';overlays[pg].append(im);}
+  if(signedImage&&overlays[pg]){const im=document.createElement('img');im.alt='참여교원 서명';im.src=signedImage;im.style.cssText='position:absolute;left:483pt;top:698pt;width:32pt;height:25pt;object-fit:contain;';overlays[pg].append(im);}
  }
 }
 function repaginate(){
@@ -360,11 +360,6 @@ function clientValidate(rows,usedItems){
  }
  const ids=rows.map(r=>r.studentNo.replace(/\s+/g,'').toUpperCase());if(new Set(ids).size!==ids.length)throw Error('같은 신청서에 학번이 중복되었습니다.');
 }
-function validateIncludingBlankRows(items,usedItems){
- const blank=items.filter(item=>!usedItems.includes(item));const toDisable=blank.flatMap(item=>Array.from(item.querySelectorAll('input,select,textarea')).filter(el=>!el.disabled));
- toDisable.forEach(el=>el.disabled=true);
- try{return $('taForm').reportValidity()}finally{toDisable.forEach(el=>el.disabled=false)}
-}
 $('taForm').addEventListener('submit',async ev=>{
  ev.preventDefault();if(submitBusy)return;
  try{
@@ -373,7 +368,7 @@ $('taForm').addEventListener('submit',async ev=>{
   const students=usedItems.map(studentData);clientValidate(students,usedItems);
   const professorName=$('teacherName').value.trim();if(!professorName)throw new Error('하단의 참여교원 성명을 입력하세요.');
   const professorEmail=$('teacherEmail').value.trim();const date=$('applicationDate').value;if(!date)throw new Error('신청일을 입력하세요.');
-  if(!validateIncludingBlankRows(items,usedItems)){const invalid=$('taForm').querySelector(':invalid');message('submitMessage',invalid?.id==='teacherName'?'참여교원 성명을 입력하세요.':invalid?.id==='applicationDate'?'신청일을 확인하세요.':'이메일 형식을 확인하세요.','error');invalid?.focus();return;}
+  if(professorEmail&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(professorEmail))throw Error('하단 이메일 주소 형식을 확인하세요.');
   const sig=teacherSignature();
   submitBusy=true;$('submitForm').disabled=true;$('submitForm').textContent='접수 서버로 이동 중...';
   submitToAppsScript({professorName,email:professorEmail,date,students,nonce,...sig});
