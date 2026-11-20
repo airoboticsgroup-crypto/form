@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>양식 14 · 회의록 | 로봇특성화대학사업단</title>
+<style>
+:root{font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;color:#243a40;background:#f2f6f3;font-size:13px}
+*{box-sizing:border-box}body{margin:0}button,input,textarea{font:inherit}button{cursor:pointer}
+[hidden]{display:none!important}:focus-visible{outline:3px solid #d7ac4b;outline-offset:2px}
+.bar{background:#153e32;color:#fff;padding:11px 18px}.bar-inner{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.bar strong{font-size:17px}.bar .actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.bar button,.bar a{display:inline-flex;align-items:center;justify-content:center;min-height:35px;padding:8px 12px;border-radius:6px;background:#fff;color:#174f39;font-size:12px;font-weight:700;text-decoration:none;border:1px solid #c5d4c8}
+.bar button.primary{background:#dff3e7;border-color:#dff3e7}
+.wrap{padding:20px 14px 34px}
+.sheet{margin:0 auto;width:min(100%,210mm);min-height:297mm;background:white;box-shadow:0 3px 18px #183d2920;border:1px solid #d9e4df;padding:13mm 13mm 14mm}
+.form-number{font-size:12px;color:#4e665c;font-weight:700}
+h1{font-size:25px;letter-spacing:-.05em;text-align:center;margin:11px 0 17px}
+.grid-form{border:1px solid #697e78}
+.form-row{display:grid;grid-template-columns:31mm minmax(0,1fr);border-bottom:1px solid #8b9f98;min-height:38px}
+.form-row:last-child{border-bottom:0}
+.cell-label{font-size:12px;font-weight:700;background:#eef3f0;border-right:1px solid #8b9f98;padding:10px 9px;display:flex;align-items:center;justify-content:center;text-align:center;word-break:keep-all}
+.cell-body{min-width:0;padding:7px 9px;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.cell-body.column{display:block}
+input[type=text],input[type=datetime-local],input[type=number],textarea{width:100%;padding:7px 8px;border:1px solid #c4d1ca;border-radius:4px;background:white;color:#213b32;min-width:0}
+textarea{resize:vertical;line-height:1.55;min-height:55px}
+input[type=radio]{accent-color:#176446}
+.choices{display:flex;flex-wrap:wrap;align-items:center;gap:6px 15px}
+.choices label{display:inline-flex;gap:5px;align-items:center;white-space:nowrap;cursor:pointer}
+.compact-input{display:flex;align-items:center;gap:8px;width:100%}
+.compact-input input{flex:1}
+.choices .other{max-width:170px}
+.label-note{font-size:10px;color:#536e60;font-weight:400}
+.minute-purpose{min-height:66px}
+.minute-content{min-height:116px}
+.attendees-heading{display:flex;justify-content:space-between;align-items:center;gap:9px;margin:13px 0 7px}
+.attendees-heading strong{font-size:14px}
+.attendees-heading button{background:#eef6f0;border:1px solid #c1d6c8;border-radius:5px;color:#195638;padding:6px 10px;font-size:12px}
+.table-wrap{width:100%;overflow-x:auto}
+table{border-collapse:collapse;width:100%;table-layout:fixed}
+th,td{border:1px solid #82978e;padding:5px 4px;font-size:11px;vertical-align:middle;text-align:center}
+th{background:#eef3f0;font-size:11px;line-height:1.45}
+th:nth-child(1){width:7%}th:nth-child(2){width:24%}th:nth-child(3){width:15%}th:nth-child(4){width:16%}th:nth-child(5){width:23%}th:nth-child(6){width:15%}
+td input{border:0!important;border-radius:0!important;padding:5px 3px!important;font-size:11px;text-align:center;min-height:27px}
+tr.attendee-row{height:34px}
+.hint{margin:10px 0 0;font-size:11px;color:#4e6258;line-height:1.7;word-break:keep-all}
+.status{min-height:18px;color:#e1f4e5;font-size:12px}
+.status.error{color:#ffd7bf}
+.print-only,.print-choice{display:none}
+@page{size:A4 portrait;margin:0}
+@media print{
+ html,body{margin:0;padding:0;background:white;color:#000;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .bar,.no-print{display:none!important}
+ .wrap{padding:0}
+ .sheet{width:210mm;min-height:297mm;border:0;box-shadow:none;padding:13mm 13mm 12mm;margin:0}
+ h1{margin:11px 0 16px;font-size:23px}
+ .grid-form{border-color:#64776f}
+ .form-row{border-color:#64776f;break-inside:avoid}
+ .cell-label{background:#f2f5f2;border-color:#64776f}
+ .cell-body{padding:8px 9px}
+ .cell-body .choices,.cell-body .editor{display:none!important}
+ .print-only,.print-choice{display:block!important;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.55;font-size:12px;width:100%}
+ .cell-body.column .print-only{min-height:25px}
+ .minute-purpose + .print-only{min-height:44px}
+ .minute-content + .print-only{min-height:100px}
+ .attendees-heading{margin:14px 0 7px}
+ .attendee-row{height:32px}
+ td .print-only{font-size:11px;text-align:center;white-space:pre-wrap;word-break:break-word}
+ th,td{border-color:#64776f}
+ .hint{margin-top:9px;font-size:10.5px}
+ tr,th,td{break-inside:avoid}
+}
+@media(max-width:720px){
+ .bar-inner{align-items:flex-start}
+ .bar .actions{width:100%}
+ .wrap{padding:10px 7px 22px}
+ .sheet{min-height:0;padding:16px 12px}
+ h1{font-size:22px}
+ .form-row{grid-template-columns:105px minmax(0,1fr)}
+ .cell-label{font-size:11px;padding:8px 5px}
+ .cell-body{padding:7px 6px}
+ .choices{gap:6px 10px}
+ .choices label{font-size:11px;white-space:normal}
+ .table-wrap table{min-width:590px}
+}
+</style>
+</head>
+<body>
+<header class="bar">
+ <div class="bar-inner">
+  <div><strong>양식 14 · 회의록</strong><div class="status" id="status" aria-live="polite"></div></div>
+  <div class="actions">
+   <a href="./index.html">서식 목록으로 돌아가기</a>
+   <button type="button" id="resetBtn">다시 작성</button>
+   <button type="button" class="primary" id="printBtn">PDF 저장 · 인쇄</button>
+  </div>
+ </div>
+</header>
+<main class="wrap">
+ <article class="sheet" aria-label="첨부 양식 14 회의록">
+  <div class="form-number">첨부 · 양식 14.</div>
+  <h1>회의록</h1>
+  <form id="minutesForm" autocomplete="off">
+   <div class="grid-form">
+    <div class="form-row">
+     <div class="cell-label">구분</div>
+     <div class="cell-body">
+      <div class="choices editor" role="radiogroup" aria-label="회의록 구분">
+       <label><input type="radio" name="meetingCategory" value="기업협업교과목" required> 기업협업교과목</label>
+       <label><input type="radio" name="meetingCategory" value="비교과프로그램"> 비교과프로그램</label>
+       <label><input type="radio" name="meetingCategory" value="그 외 기타"> 그 외 기타</label>
+       <input id="categoryOther" type="text" class="other" maxlength="100" placeholder="기타 구분">
+      </div>
+      <span class="print-choice" id="pCategory"></span>
+     </div>
+    </div>
+    <div class="form-row">
+     <label class="cell-label" for="courseName">기업협업교과목명</label>
+     <div class="cell-body"><input class="editor" type="text" id="courseName" maxlength="150" placeholder="기업협업교과목인 경우 입력"><span class="print-only" data-out="courseName"></span></div>
+    </div>
+    <div class="form-row">
+     <label class="cell-label" for="programName">비교과프로그램명</label>
+     <div class="cell-body"><input class="editor" type="text" id="programName" maxlength="150" placeholder="비교과프로그램인 경우 입력"><span class="print-only" data-out="programName"></span></div>
+    </div>
+    <div class="form-row">
+     <div class="cell-label">비교과프로그램 구분</div>
+     <div class="cell-body">
+      <div class="choices editor" role="radiogroup" aria-label="비교과프로그램 구분">
+       <label><input type="radio" name="programType" value="KW-IC기업매칭"> KW-IC기업매칭</label>
+       <label><input type="radio" name="programType" value="연구실인턴십"> 연구실인턴십</label>
+       <label><input type="radio" name="programType" value="산학인턴십"> 산학인턴십</label>
+       <label><input type="radio" name="programType" value="산학협력프로젝트"> 산학협력프로젝트</label>
+       <label><input type="radio" name="programType" value="안전윤리교육"> 안전윤리교육</label>
+       <label><input type="radio" name="programType" value="로봇경진대회"> 로봇경진대회</label>
+       <label><input type="radio" name="programType" value="외부 단기강좌"> 외부 단기강좌</label>
+       <label><input type="radio" name="programType" value="세미나/특강"> 세미나/특강</label>
+       <label><input type="radio" name="programType" value="견학/전시회"> 견학/전시회</label>
+       <label><input type="radio" name="programType" value="기타"> 기타</label>
+       <input type="text" id="programTypeOther" class="other" maxlength="100" placeholder="기타 내용">
+      </div>
+      <span class="print-choice" id="pProgramType"></span>
+     </div>
+    </div>
+    <div class="form-row">
+     <label class="cell-label" for="meetingAt">회의 일시</label>
+     <div class="cell-body"><input class="editor" type="datetime-local" id="meetingAt" required><span class="print-only" data-out="meetingAt"></span></div>
+    </div>
+    <div class="form-row">
+     <label class="cell-label" for="meetingFee">회의비 (원)</label>
+     <div class="cell-body"><input class="editor" type="number" id="meetingFee" min="0" step="1" inputmode="numeric" placeholder="0"><span class="print-only" data-out="meetingFee"></span></div>
+    </div>
+    <div class="form-row">
+     <label class="cell-label" for="meetingLocation">회의 장소</label>
+     <div class="cell-body"><input class="editor" type="text" id="meetingLocation" maxlength="200" required placeholder="회의 장소"><span class="print-only" data-out="meetingLocation"></span></div>
+    </div>
+    <div class="form-row">
+     <label class="cell-label" for="meetingPurpose">회의 목적</label>
+     <div class="cell-body column"><textarea class="editor minute-purpose" id="meetingPurpose" maxlength="3000" required placeholder="회의 목적을 작성하세요."></textarea><span class="print-only" data-out="meetingPurpose"></span></div>
+    </div>
+    <div class="form-row">
+     <label class="cell-label" for="meetingContent">회의 내용</label>
+     <div class="cell-body column"><textarea class="editor minute-content" id="meetingContent" maxlength="12000" required placeholder="논의 내용, 주요 의견, 결정 사항 등을 작성하세요."></textarea><span class="print-only" data-out="meetingContent"></span></div>
+    </div>
+   </div>
+   <div class="attendees-heading">
+    <strong>회의 참석자</strong>
+    <button class="no-print" type="button" id="addPerson">+ 참석자 추가</button>
+   </div>
+   <div class="table-wrap">
+    <table aria-label="회의 참석자 목록">
+     <thead><tr>
+      <th>번호</th><th>소속기관</th><th>성명</th><th>직급</th><th>소속학과<br><span class="label-note">광운대만 기재</span></th><th>학번<br><span class="label-note">광운대만 기재</span></th>
+     </tr></thead>
+     <tbody id="attendeeRows"></tbody>
+    </table>
+   </div>
+   <p class="hint">※ 세부내역 영수증 첨부 매장 : 편의점, 카페, 결재대행 및 결재솔루션, 운영법인명, 백화점, 쇼핑몰</p>
+  </form>
+ </article>
+</main>
+<script>
+"use strict";
+(function(){
+ const $=id=>document.getElementById(id);
+ const form=$("minutesForm"),rows=$("attendeeRows"),status=$("status");
+ function report(message,error=false){status.textContent=message;status.className="status"+(error?" error":"");}
+ function makeAttendee(){
+  if(rows.children.length>=30){report("참석자는 최대 30명까지 입력할 수 있습니다.",true);return;}
+  const tr=document.createElement("tr");tr.className="attendee-row";
+  const num=document.createElement("td");num.className="number";tr.append(num);
+  for(const [key,label] of [["org","소속기관"],["name","성명"],["rank","직급"],["dept","소속학과"],["studentNo","학번"]]){
+   const td=document.createElement("td");
+   const input=document.createElement("input");input.type="text";input.className="editor";input.dataset.key=key;input.setAttribute("aria-label",label);input.maxLength=key==="studentNo"?35:120;
+   const output=document.createElement("span");output.className="print-only";
+   td.append(input,output);tr.append(td);
+  }
+  rows.append(tr);renumber();
+ }
+ function renumber(){[...rows.children].forEach((tr,i)=>tr.querySelector(".number").textContent=String(i+1));}
+ function choice(name,otherId){const selected=form.querySelector('input[name="'+name+'"]:checked');if(!selected)return "";let value=selected.value;const extra=$(otherId).value.trim();if((value==="기타"||value==="그 외 기타")&&extra)value+=" ("+extra+")";return value;}
+ function syncPrint(){
+  for(const out of form.querySelectorAll("[data-out]")){
+   let value=$(out.dataset.out).value.trim();
+   if(out.dataset.out==="meetingAt"&&value)value=value.replace("T"," ");
+   if(out.dataset.out==="meetingFee"&&value)value=Number(value).toLocaleString("ko-KR")+"원";
+   out.textContent=value;
+  }
+  $("pCategory").textContent=choice("meetingCategory","categoryOther");
+  $("pProgramType").textContent=choice("programType","programTypeOther");
+  for(const tr of rows.children){
+   for(const cell of tr.querySelectorAll("td")){
+    const input=cell.querySelector("input");
+    if(input)cell.querySelector(".print-only").textContent=input.value.trim();
+   }
+  }
+ }
+ function validate(){
+  const cat=choice("meetingCategory","categoryOther"),program=choice("programType","programTypeOther");
+  if(!cat){report("회의록 구분을 선택하세요.",true);return false;}
+  if(cat.startsWith("기업협업교과목")&&!$("courseName").value.trim()){report("기업협업교과목명을 입력하세요.",true);$("courseName").focus();return false;}
+  if(cat.startsWith("비교과프로그램")){
+   if(!$("programName").value.trim()){report("비교과프로그램명을 입력하세요.",true);$("programName").focus();return false;}
+   if(!program){report("비교과프로그램 구분을 선택하세요.",true);return false;}
+  }
+  if(cat.startsWith("그 외 기타")&&!$("categoryOther").value.trim()){report("기타 회의 구분을 입력하세요.",true);$("categoryOther").focus();return false;}
+  if(program==="기타"&&!$("programTypeOther").value.trim()&&cat==="비교과프로그램"){report("비교과 유형의 기타 내용을 입력하세요.",true);return false;}
+  if(!form.reportValidity()){report("회의 일시·장소·목적·내용을 입력하세요.",true);return false;}
+  const people=[...rows.querySelectorAll("tr")].filter(tr=>tr.querySelector('input[data-key="name"]').value.trim());
+  if(!people.length){report("회의 참석자를 1명 이상 입력하세요.",true);return false;}
+  return true;
+ }
+ $("addPerson").addEventListener("click",makeAttendee);
+ $("printBtn").addEventListener("click",()=>{
+  if(!validate())return;
+  syncPrint();
+  report("인쇄 창에서 'PDF로 저장'을 선택하세요.");
+  window.print();
+ });
+ $("resetBtn").addEventListener("click",()=>{
+  if(!confirm("작성한 회의록 내용을 모두 지울까요?"))return;
+  form.reset();rows.replaceChildren();for(let i=0;i<5;i++)makeAttendee();report("");
+ });
+ window.addEventListener("beforeprint",syncPrint);
+ for(let i=0;i<5;i++)makeAttendee();
+})();
+</script>
+</body>
+</html>
