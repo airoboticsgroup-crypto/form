@@ -14,15 +14,15 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .sheet{width:min(900px,calc(100% - 24px));margin:auto;background:#fff;padding:24px;box-shadow:0 2px 16px #18394c10}
 .sheet-tag{display:flex;gap:0;background:#e1e5e8;color:#182f42;font-weight:700;line-height:1.7;border:1px solid #777;margin-top:0}
 .sheet-tag strong{padding:3px 17px;color:#fff;background:#858b90}.sheet-tag span{padding:3px 10px}
-.document-title{text-align:center;background:#d8dee4;border:1px solid #8b9ba7;border-top:0;padding:7px;margin:0;font-size:24px;letter-spacing:1.3px;color:#18344b}
+.document-title{text-align:center;background:#d8dee4;border:1px solid #8b9ba7;border-top:2px solid #8399a8;padding:7px;margin:0;font-size:24px;letter-spacing:1.3px;color:#18344b}
 .paper-heading{display:none}.form-page{margin-bottom:0}.form-table{border-collapse:collapse;width:100%;table-layout:fixed;border:1.1px solid #8399a8;margin:0}
 .form-table thead{display:none}
 .form-table th,.form-table td{border:1px solid var(--line);padding:3px 6px;vertical-align:middle;overflow-wrap:anywhere}
 .form-table th{background:var(--label);font-weight:600;color:var(--ink);text-align:center;font-size:13px}
 .form-table td{background:#fff;min-height:33px}
-.form-table .ta-mark{width:12%;font-weight:700;color:#305a6e;line-height:1.45}
+.form-table .ta-mark{width:12%;font-weight:700;color:#305a6e;line-height:1.45;position:relative}
 .form-table .ta-mark small{font-size:12px;display:block;color:#5e7485}
-.form-table .ta-mark button{font-size:11px;margin-top:10px;white-space:nowrap;padding:4px 5px}
+.form-table .ta-mark button{font-size:11px;white-space:nowrap;padding:4px 9px;position:absolute;left:50%;bottom:12px;transform:translateX(-50%);margin:0}
 .form-table .form-input{width:100%;min-height:27px;border:0;border-radius:0;padding:5px 6px;background:var(--yellow);color:var(--ink);font:inherit}
 .form-table .form-input::placeholder{color:#9a8d67}
 .form-table input[type=radio],.form-table input[type=checkbox]{width:15px;height:15px;min-width:15px;accent-color:var(--blue);margin:0 4px 0 0;vertical-align:middle;cursor:pointer}
@@ -98,6 +98,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 /* 최종 인쇄(PDF)는 원본 양식 7 벡터 배경을 사용해 표/로고/격자 일치 */
 .reference-bg,.print-layer{display:none}
 @media print{
+ .form-table .ta-mark button{display:none!important}
  .sheet{width:210mm;max-width:none;padding:0;margin:0}
  .form-page{position:relative;width:210mm;height:297mm;min-height:297mm;max-height:297mm;break-after:page;page-break-after:always;margin:0;padding:0;overflow:hidden}
  .form-page:last-child{page-break-after:auto;break-after:auto}
