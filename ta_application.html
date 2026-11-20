@@ -70,7 +70,7 @@ main{max-width:1100px;margin:auto;padding:24px 25px 60px}.intro{display:flex;jus
 <script>
 'use strict';
 const $=id=>document.getElementById(id),pages=$('pages');
-const TA7_WEBAPP_URL = ''; // 배포된 양식7_신청접수 Apps Script /exec 주소 입력
+const TA7_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbwKfJTjKMbTplhhi-k6YU4Qyx6z5dERztOrBkmkkZxIqXtnbKTT5a8dZZQfX5aKo1aP/exec'; // 배포된 양식7_신청접수 Apps Script /exec 주소 입력
 let submitBusy=false;
 const nonce=(()=>{const a=new Uint32Array(4);if(window.crypto&&crypto.getRandomValues)crypto.getRandomValues(a);else a.set([Date.now()%4294967296,12345678,87654321,87612341]);return Array.from(a,x=>x.toString(36)).join('-');})();
 const count=()=>document.querySelectorAll('[data-ta-row]').length;
