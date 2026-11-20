@@ -123,7 +123,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 <div class="email-row"><label for="teacherEmail">교수 이메일 (선택)</label><input id="teacherEmail" type="email" maxlength="120" placeholder="학교메일 또는 Gmail" autocomplete="email"></div>
 <div class="director">위의 내용을 승인합니다. 로봇특성화대학사업단장 최용훈 (인)</div>
 </section>
-<div class="note screen-only"><strong>제출 안내</strong> · 교과목 TA 또는 실습 TA를 반드시 선택하고 참여율을 선택하세요. 개인정보 이용 동의서는 별도 제출합니다. 주민등록번호는 웹에서 수집하지 않으며, 은행·계좌는 선택 입력입니다. 참여교원/사업단장 서명과 최종 PDF 저장은 관리자가 처리합니다.</div>
+<div class="note screen-only"><strong>제출 안내</strong> · 교과목 TA 또는 실습 TA를 반드시 선택하고 참여율을 선택하세요. 개인정보 이용 동의서는 사업단에 별도 제출해야 합니다. 추천서 제출 시 이 안내를 확인한 것으로 처리합니다. 주민등록번호는 웹에서 수집하지 않으며, 은행·계좌는 선택 입력입니다. 참여교원/사업단장 서명과 최종 PDF 저장은 관리자가 처리합니다.</div>
 <div class="submit-actions screen-only"><button id="clearForm" type="button">입력 초기화</button><button id="submitForm" class="primary" type="submit">추천서 제출</button></div>
 <div id="submitMessage" class="status" hidden role="status" aria-live="polite"></div>
 </form></main>
@@ -148,14 +148,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 <tr class="rate-row"><th rowspan="3" scope="row">신청 참여율</th><td rowspan="3"><div class="degree-choice" role="group" aria-label="학위과정 필수 선택"><label><input type="radio" name="degree" data-degree value="master" required>석사</label><label><input type="radio" name="degree" data-degree value="doctor">박사</label></div></td><td colspan="2" class="rate-choice" data-rate-cell="course"><label><input type="radio" name="rate" data-rate-kind="course" data-rate value="10" required><span>교육TA(교과) 참여율(10%)</span></label></td><td class="rate-choice" data-rate-cell="practice"><label><input type="radio" name="rate" data-rate-kind="practice" data-rate value="10"><span>교육TA(실습) 참여율(10%)</span></label></td></tr>
 <tr class="rate-row"><td colspan="2" class="rate-choice" data-rate-cell="course"><label><input type="radio" name="rate" data-rate-kind="course" data-rate value="20"><span>교육TA(교과) 참여율(20%)</span></label></td><td class="rate-choice" data-rate-cell="practice"><label><input type="radio" name="rate" data-rate-kind="practice" data-rate value="20"><span>교육TA(실습) 참여율(20%)</span></label></td></tr>
 <tr class="rate-row"><td colspan="2" class="rate-choice" data-rate-cell="course"><label><input type="radio" name="rate" data-rate-kind="course" data-rate value="30"><span>교육TA(교과) 참여율(30%)</span></label></td><td class="rate-choice" data-rate-cell="practice"><label><input type="radio" name="rate" data-rate-kind="practice" data-rate value="30"><span>교육TA(실습) 참여율(30%)</span></label></td></tr>
-<tr class="extras screen-only"><td colspan="6"><div class="extra-fields">
-  <label>학생 Google 계정 (활동일지 연동)<input name="googleEmail" type="email" maxlength="120" placeholder="student@gmail.com"></label>
-  <label>참여 시작일<input name="start" type="date"></label>
-  <label>참여 종료일<input name="end" type="date"></label>
-  <label class="span2">개인정보 이용 동의서 링크 (선택)<input name="consentUrl" type="url" maxlength="250" placeholder="https://..."></label>
-  <label>업무 참고사항<textarea name="notes" rows="1" maxlength="300"></textarea></label>
-  <label class="span3 consent-wrap"><input type="checkbox" name="consentConfirmed" required>개인정보 이용 동의서는 별도 제출해야 하며, 사업단이 최종 확인한다는 안내를 확인했습니다.</label>
- </div></td></tr>
+
 </tbody>
 </template>
 <template id="footerTemplate"><div class="pdf-footer">
@@ -284,14 +277,13 @@ $('applicationDate').addEventListener('change',()=>{syncPrintFooter();populatePr
 function taRowHasContent(item){return Array.from(item.querySelectorAll('input,select,textarea')).some(e=>e.type==='radio'||e.type==='checkbox'?e.checked:!!String(e.value||'').trim());}
 function studentData(item){
  const v=name=>{const e=item.querySelector('[name="'+name+'"]');return e?e.value.trim():''};
- return{duty:v('duty'),kind:item.querySelector('input[data-kind]:checked')?.value||'',name:v('name'),department:v('department'),studentNo:v('studentNo'),phone:v('phone'),researcherNo:v('researcherNo'),googleEmail:v('googleEmail'),bankName:v('bankName'),bankAccount:v('bankAccount'),degree:item.querySelector('input[data-degree]:checked')?.value||'',rate:Number(item.querySelector('input[data-rate]:checked')?.value||0),start:v('start'),end:v('end'),consentUrl:v('consentUrl'),notes:v('notes'),consentConfirmed:!!item.querySelector('[name="consentConfirmed"]').checked};
+ return{duty:v('duty'),kind:item.querySelector('input[data-kind]:checked')?.value||'',name:v('name'),department:v('department'),studentNo:v('studentNo'),phone:v('phone'),researcherNo:v('researcherNo'),googleEmail:'',bankName:v('bankName'),bankAccount:v('bankAccount'),degree:item.querySelector('input[data-degree]:checked')?.value||'',rate:Number(item.querySelector('input[data-rate]:checked')?.value||0),start:'',end:'',consentUrl:'',notes:'',consentConfirmed:true};
 }
 function clientValidate(rows){
  for(let i=0;i<rows.length;i++){
   const r=rows[i],n=i+1;
   if(!r.duty||!r.name||!r.department||!r.studentNo||!r.phone||!r.kind||!r.degree||![10,20,30].includes(r.rate))throw new Error(n+'번째 TA의 필수항목 또는 참여율을 확인하세요. 교과목 TA/실습 TA 구분도 필수입니다.');
-  if(!r.consentConfirmed)throw new Error(n+'번째 TA의 개인정보 이용 동의서 안내를 확인하세요.');
-  if(r.start&&r.end&&r.start>r.end)throw new Error(n+'번째 TA의 참여 기간을 확인하세요.');
+
  }
  const ids=rows.map(r=>r.studentNo.replace(/\s+/g,'').toUpperCase());if(new Set(ids).size!==ids.length)throw new Error('같은 신청서에 학번이 중복되었습니다.');
 }
