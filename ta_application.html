@@ -40,6 +40,24 @@ main{max-width:1100px;margin:auto;padding:24px 25px 60px}.intro{display:flex;jus
 .paper-extra>.fields{margin-top:15px}
 @media(max-width:590px){.project-strip{grid-template-columns:1fr}.project-strip>div+div{border-left:0;border-top:1px solid #bdccc6}.ta-paper{min-width:590px}.ta-paper th,.ta-paper td{padding:7px}.paper-extra .fields{grid-template-columns:1fr}.bank-cells{gap:7px}}
 @media print{.project-strip{margin-bottom:2mm}.project-strip>div{padding:2mm}.ta-paper{min-width:0;font-size:9px}.ta-paper th,.ta-paper td{padding:3px}.ta-paper input:not([type=radio]),.ta-paper select{font-size:9px;min-height:20px;padding:2px}.paper-extra{display:none}}
+/* 전체 입력표 펼침 / 원래 색상, 추가 버튼, 접수 방식 유지 */
+.paper-extra h4{font-size:13px;color:#326452;margin:0;font-weight:700}
+.paper-extra>.fields{margin-top:11px}
+.paper-signature{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 25px;margin-top:19px}
+.paper-declaration{text-align:center;color:#243542;font-size:15px;font-weight:700;margin:3px 0 16px}
+.paper-date{display:flex;justify-content:center;margin-bottom:16px}
+.paper-date label{display:flex;align-items:center;gap:10px;color:#3e5b51;font-size:13px;font-weight:700}
+.paper-date input,.paper-faculty input{min-height:36px;border:1px solid #b7cac2;border-radius:6px;background:#fffdf3;padding:7px 11px;color:#203a32;font:inherit}
+.paper-faculty{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;justify-content:flex-end;margin:0 0 16px}
+.paper-faculty>label{display:flex;gap:8px;align-items:center;font-size:13px;color:#405b51}
+.paper-faculty input{width:135px}
+.paper-faculty .paper-email{font-size:12px;color:#687e75}
+.paper-faculty .paper-email input{width:200px}
+.paper-director{border:1px solid #bacbc4;background:#f6f8f6;padding:12px 15px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;color:#476257;font-size:12px}
+.paper-director strong{color:#283f36}
+.paper-director small{display:block;width:100%;color:#789087}
+@media(max-width:590px){.paper-signature{padding:15px}.paper-faculty{justify-content:flex-start}.paper-faculty>label{flex-wrap:wrap}.paper-faculty .paper-email input{width:185px}.paper-director{display:block}}
+@media print{.paper-signature{padding:3mm;border:0;margin-top:2mm;break-inside:avoid}.paper-declaration{margin:0 0 3mm}.paper-director{padding:2mm}.paper-extra{display:none}.paper-date input,.paper-faculty input{min-height:5mm;padding:1mm}}
 </style>
 </head>
 <body>
@@ -47,19 +65,20 @@ main{max-width:1100px;margin:auto;padding:24px 25px 60px}.intro{display:flex;jus
 <main>
 <div class="intro"><p>교수님께서 TA 추천정보를 입력해 제출하면, 직원이 검토·수정하고 사업단장이 최종 승인합니다.</p><span class="pill">정규 참여율 10% · 20% · 30%</span></div>
 <form id="taForm" novalidate autocomplete="on">
-<section class="panel"><div class="section-head"><span class="secnum">01</span><h2>참여교원 정보</h2><span class="meta">로그인 · 인증번호 불필요</span></div>
+<section class="panel"><div class="section-head"><span class="secnum">01</span><h2>TA 추천정보</h2><span class="meta" id="pageCount">1페이지 · 3명</span></div>
 <div class="project-strip"><div><strong>사업명</strong><span>로봇특성화대학사업단</span></div><div><strong>과제책임자</strong><span>사업단장 최용훈</span></div></div>
-<div class="fields">
-  <label class="field"><span class="req">추천교원 이름</span><input id="teacherName" maxlength="80" placeholder="교수님 성명" autocomplete="name" required></label>
-  <label class="field"><span>교수 이메일 (선택)</span><input id="teacherEmail" type="email" maxlength="120" placeholder="학교메일(@kw.ac.kr) 또는 Gmail" autocomplete="email"></label>
-  <label class="field"><span class="req">신청일</span><input id="applicationDate" type="date" required></label>
-  <label class="field"><span>추천 TA 수</span><input id="itemCount" readonly value="1명"></label>
-</div>
-</section>
-<section class="panel"><div class="section-head"><span class="secnum">02</span><h2>TA 추천정보</h2><span class="meta" id="pageCount">1페이지 · 1명</span></div>
 <div id="pages"></div>
 <div class="addBar"><button class="btn secondary" id="addStudent" type="button">＋ TA 추천정보 추가</button><p>TA 추천인원은 3명을 넘어도 계속 추가할 수 있으며, 서식은 3명마다 다음 페이지로 구분됩니다.</p></div>
-<div class="summary"><p>주민등록번호는 신청하지 않으며 계좌정보는 비워둬도 제출할 수 있습니다. 제출 후 직원이 보완합니다.</p><b id="summaryCount">총 1명 · PDF 기준 1페이지</b></div>
+<div class="summary"><p>미작성 TA 항목은 비워두면 제출 시 자동 제외됩니다. 주민등록번호는 웹에서 수집하지 않으며 계좌정보는 선택사항입니다.</p><b id="summaryCount">총 3명 · PDF 기준 1페이지</b></div><input id="itemCount" type="hidden" value="3명">
+</section>
+<section class="paper-signature" aria-label="신청일 및 참여교원 확인">
+<p class="paper-declaration">위와 같이 추천하오니 승인하여 주시기 바랍니다.</p>
+<div class="paper-date"><label>신청일 <input id="applicationDate" type="date" required></label></div>
+<div class="paper-faculty">
+<label><strong>로봇특성화대학사업단 참여교원</strong> <input id="teacherName" maxlength="80" placeholder="참여교원 성명" autocomplete="name" aria-label="참여교원 성명" required> <span>(인)</span></label>
+<label class="paper-email">교수 이메일 (선택) <input id="teacherEmail" type="email" maxlength="120" placeholder="학교메일 또는 Gmail" autocomplete="email"></label>
+</div>
+<div class="paper-director">위의 내용을 승인합니다. <strong>로봇특성화대학사업단장 최용훈 (인)</strong><small>관리자 승인 후 서명 반영</small></div>
 </section>
 <section class="notice"><strong>제출 안내</strong> · 원본 양식 7을 기준으로 작성합니다. 교육TA(교과)·교육TA(실습) 모두 정규 참여율 10%·20%·30% 중 선택합니다. 개인정보 이용 동의서는 별도 제출 필수입니다. 최종 교수·사업단장 서명과 PDF 생성은 관리자에서 처리하며, 이 신청 화면에서는 처리하지 않습니다.</section>
 <div class="bottom"><button class="btn" type="button" id="clearForm">입력 초기화</button><button class="btn primary" id="submitForm" type="submit">추천서 제출</button></div>
@@ -79,14 +98,14 @@ main{max-width:1100px;margin:auto;padding:24px 25px 60px}.intro{display:flex;jus
  <tr><th scope="row">계좌정보</th><td colspan="3"><div class="bank-cells"><label>은행명 (선택)<input name="bankName" maxlength="40"></label><label>계좌번호 (선택)<input name="bankAccount" maxlength="80" autocomplete="off"></label></div></td></tr>
  <tr><th scope="row">신청 참여율 *</th><td colspan="3"><div class="rate-line"><label>학위과정<select name="degree" required><option value="">선택하세요</option><option value="master">석사</option><option value="doctor">박사</option></select></label><div class="rate-options"><span>교육 TA 참여율</span><div class="rate-select"><label><input type="radio" name="rate" value="10" required>10%</label><label><input type="radio" name="rate" value="20">20%</label><label><input type="radio" name="rate" value="30">30%</label></div></div></div></td></tr>
  </tbody></table></div>
- <details class="paper-extra"><summary>추가 정보: 활동일지 연동·기간·동의서 (선택)</summary>
+ <section class="paper-extra"><h4>추가 정보 · 활동일지 연동·기간·동의서 (선택)</h4>
  <div class="fields">
  <label class="field"><span>학생 Google 계정</span><input name="googleEmail" type="email" maxlength="120" placeholder="student@gmail.com"></label>
  <label class="field"><span>참여 시작일</span><input name="start" type="date"></label>
  <label class="field"><span>참여 종료일</span><input name="end" type="date"></label>
  <label class="field wide"><span>개인정보 이용 동의서 링크</span><input name="consentUrl" type="url" maxlength="250" placeholder="https://..."></label>
  <label class="field full"><span>업무 관련 참고사항</span><textarea name="notes" maxlength="300" rows="2"></textarea></label>
- </div></details> <label class="checkboxline"><input name="consentConfirmed" type="checkbox" required><span>개인정보 이용 동의서가 별도로 필요하며, 제출 여부는 사업단에서 최종 확인한다는 안내를 확인했습니다.</span></label>
+ </div></section> <label class="checkboxline"><input name="consentConfirmed" type="checkbox" required><span>개인정보 이용 동의서가 별도로 필요하며, 제출 여부는 사업단에서 최종 확인한다는 안내를 확인했습니다.</span></label>
 </div>
 </template>
 <script>
@@ -134,6 +153,17 @@ $('clearForm').onclick=()=>{if(!confirm('작성 중인 내용을 모두 초기�
 function studentData(item){const v=name=>{const element=item.querySelector('[name="'+name+'"]');return element?element.value.trim():'';};return {
  duty:v('duty'),kind:v('kind'),name:v('name'),department:v('department'),studentNo:v('studentNo'),phone:v('phone'),researcherNo:v('researcherNo'),googleEmail:v('googleEmail'),bankName:v('bankName'),bankAccount:v('bankAccount'),degree:v('degree'),rate:Number(item.querySelector('input[type="radio"]:checked')?.value||0),start:v('start'),end:v('end'),consentUrl:v('consentUrl'),notes:v('notes'),consentConfirmed:!!item.querySelector('[name="consentConfirmed"]').checked
 };}
+function taRowHasContent(item){
+ return Array.from(item.querySelectorAll('input,select,textarea')).some(el=>
+  el.type==='radio'||el.type==='checkbox'?el.checked:!!String(el.value||'').trim());
+}
+function validateIncludingBlankRows(items,usedItems){
+ const blank=items.filter(item=>!usedItems.includes(item));
+ const disabled=blank.flatMap(item=>Array.from(item.querySelectorAll('input,select,textarea')).filter(el=>!el.disabled));
+ disabled.forEach(el=>el.disabled=true);
+ try{return $('taForm').reportValidity();}
+ finally{disabled.forEach(el=>el.disabled=false);}
+}
 function clientValidate(rows){
  for(let i=0;i<rows.length;i++){
   const r=rows[i],n=i+1;
@@ -148,19 +178,22 @@ function clientValidate(rows){
 $('taForm').addEventListener('submit',async ev=>{
  ev.preventDefault();if(submitBusy)return;
  try{
-  const students=Array.from(document.querySelectorAll('[data-ta-row]')).map(studentData);
+  const items=Array.from(document.querySelectorAll('[data-ta-row]'));
+  const usedItems=items.filter(taRowHasContent);
+  if(!usedItems.length)throw new Error('TA 추천정보를 최소 1명 입력하세요.');
+  const students=usedItems.map(studentData);
   clientValidate(students);
   const professorName=$('teacherName').value.trim();
   if(!professorName)throw new Error('추천교원 이름을 입력하세요.');
   const professorEmail=$('teacherEmail').value.trim();
   const date=$('applicationDate').value;
   if(!date)throw new Error('신청일을 입력하세요.');
-  if(!$('taForm').reportValidity())return;
+  if(!validateIncludingBlankRows(items,usedItems))return;
   submitBusy=true;$('submitForm').disabled=true;$('submitForm').textContent='접수 서버로 이동 중...';
   submitToAppsScript({professorName,email:professorEmail,date,students,nonce});
  }catch(e){message('submitMessage',e.message,'error');$('submitForm').disabled=false;$('submitForm').textContent='추천서 제출';submitBusy=false;}
 });
-(function init(){const d=new Date(),day=n=>String(n).padStart(2,'0');$('applicationDate').value=d.getFullYear()+'-'+day(d.getMonth()+1)+'-'+day(d.getDate());addStudent();if(!TA7_WEBAPP_URL)message('submitMessage','신청서 입력 화면은 준비되었습니다. 접수 서버 주소가 아직 등록되지 않아 제출만 일시적으로 불가능합니다.','');})();
+(function init(){const d=new Date(),day=n=>String(n).padStart(2,'0');$('applicationDate').value=d.getFullYear()+'-'+day(d.getMonth()+1)+'-'+day(d.getDate());addStudent();addStudent();addStudent();if(!TA7_WEBAPP_URL)message('submitMessage','신청서 입력 화면은 준비되었습니다. 접수 서버 주소가 아직 등록되지 않아 제출만 일시적으로 불가능합니다.','');})();
 </script>
 </body>
 </html>
