@@ -36,6 +36,10 @@ footer{padding:12px 0}footer .contact,footer .backup{font-size:12px}footer .wrap
 /* 한 화면 맞춤(스크롤 최소화) */
 header{padding:10px 0 12px}h1{font-size:22px;margin-bottom:2px}header p{font-size:12px;line-height:1.4}main{padding-top:12px!important;padding-bottom:12px!important}.view-tabs{margin:0 0 8px}.view-tabs button{padding:5px 14px;font-size:14px}.list-tools{margin-bottom:6px}.list-tools input{padding:5px 10px}.page-note{margin:2px 0 8px;font-size:12px}.form-list{font-size:13px;line-height:1.35}.form-list th,.form-list td{padding:4px 12px}.form-list .open{padding:2px 8px;font-size:12px}.row-description{font-size:11px;line-height:1.25;margin-top:0}.ta-staff-links{gap:3px}.ta-staff-links .open{padding:2px 7px}.admin-panel{padding:14px}
 header{padding:16px 0 18px}main{padding-top:22px!important;padding-bottom:22px!important}.view-tabs{margin:0 0 14px}.view-tabs button{padding:7px 16px}.list-tools{margin-bottom:12px}.list-tools input{padding:7px 12px}.form-list{line-height:1.4}.form-list th,.form-list td{padding:7px 14px}.form-list .open{padding:3px 9px}.ta-staff-links{gap:4px}footer{padding:16px 0}footer .backup{margin-top:3px}
+.unified-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:14px 20px}.unified-row h2{margin:0;font-size:17px;white-space:nowrap}.unified-row p{margin:0;flex:1;min-width:240px;font-size:13px}.unified-row .open{margin:0;white-space:nowrap}.admin-panel h2{font-size:18px}.admin-panel>p{margin:0 0 12px}
+.admin-panel .form-list .open{margin:0}.admin-panel .form-list td{padding:7px 14px}.unified-row p{line-height:1.4}
+.admin-panel .form-list th:nth-child(3){padding-left:24px}.admin-panel .form-list td:nth-child(3) .all-muted{display:inline-block;padding-left:10px;line-height:1.4}.admin-panel .form-list td:nth-child(3) .open{margin-left:0}.unified-row{align-items:center;padding:14px}.unified-row h2,.unified-row p{line-height:1.4}.unified-row p{align-self:center}.admin-panel{padding:14px}
+.admin-table{table-layout:fixed;min-width:650px}.admin-table .col-a{width:90px}.admin-table .col-c{width:300px}.unified-box{padding:0 14px!important;overflow-x:auto}.unified-box .form-list{border-collapse:collapse}.unified-box td{border-bottom:0!important;padding:14px!important}.unified-box strong{font-size:17px;margin-right:16px}.unified-desc{font-size:13px;color:var(--muted)}.unified-box td .open{margin:0!important}
 </style>
 </head>
 <body><header><div class="wrap"><h1>로봇특성화대학사업단 서식자동화시스템</h1><p>사용자별 서식을 확인하거나 전체 서식 목록에서 검색하세요.</p></div></header><main class="wrap">
@@ -64,7 +68,7 @@ function renderForms(){
   section.append(el('p','','양식 번호순 목록입니다. 배포된 관리자 주소만 연결하며, 실제 접근은 각 관리자 시스템에서 권한을 확인합니다.'));
   const wrap=el('div','table-scroll'),table=el('table','form-list'),head=el('thead'),headers=el('tr');
   for(const name of ['번호','서식명','관리자 접속']){const th=el('th','',name);th.setAttribute('scope','col');headers.append(th);}
-  head.append(headers);table.append(head);const body=el('tbody');
+  head.append(headers);table.classList.add('admin-table');const cg=el('colgroup');for(const c of ['col-a','col-b','col-c']){cg.append(el('col',c));}table.append(cg);table.append(head);const body=el('tbody');
   const links={
     '양식 1':{url:'https://script.google.com/macros/s/AKfycbz9vxE2nLYTTMJTIh27Wy7HDM3DDDw_PN1ZtH_AEcNLSTK0_Aj1hbaLNdLlTnbTMMh5/exec',label:'교과개발계획서 관리자'},
     '양식 2':{url:'https://script.google.com/macros/s/AKfycbzK28FaMtt6b5tVWD_JpvT4_3-6WYdg8Dh1pZWGnziIcm8O0ZBaW5BTLqX2nLtkEoU-/exec',label:'비교과개발계획서 관리자'},
@@ -83,11 +87,11 @@ function renderForms(){
    tr.append(cell);body.append(tr);
   }
   table.append(body);wrap.append(table);section.append(wrap);out.append(section);
-  const unified=el('section','admin-panel');unified.style.maxWidth='none';unified.style.marginTop='18px';
-  unified.append(el('h2','','통합관리자'));
-  unified.append(el('p','','교육TA·실습TA 활동일지, 명단 관리, 계정·권한을 기존 통합관리자에서 처리합니다.'));
-  const link=el('a','open','통합관리자 접속');link.href=ADMIN_URL;link.target='_blank';link.rel='noopener noreferrer';
-  unified.append(link);out.append(unified);
+  const unified=el('section','admin-panel unified-box');unified.style.maxWidth='none';unified.style.marginTop='14px';
+  const ut=el('table','form-list admin-table'),ucg=el('colgroup');for(const c of ['col-a','col-b','col-c'])ucg.append(el('col',c));ut.append(ucg);
+  const utr=el('tr'),utd=el('td');utd.colSpan=2;const strong=el('strong','','통합관리자');utd.append(strong,el('span','unified-desc','교육TA·실습TA 활동일지, 명단 관리, 계정·권한을 기존 통합관리자에서 처리합니다.'));
+  const ltd=el('td');const link=el('a','open','통합관리자 접속');link.href=ADMIN_URL;link.target='_blank';link.rel='noopener noreferrer';ltd.append(link);
+  utr.append(utd,ltd);const utb=el('tbody');utb.append(utr);ut.append(utb);unified.append(ut);out.append(unified);
   return;
  }
  const q=document.querySelector('#form-search').value.trim().toLocaleLowerCase('ko');const role={student:'학생',professor:'교수',staff:'직원'}[view];const items=formRows.filter(r=>(!role||r.roles[role])&&(r.number+' '+r.name+' '+(r.description||'')).toLocaleLowerCase('ko').includes(q));
