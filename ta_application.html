@@ -107,10 +107,20 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
  .print-value{position:absolute;display:block;white-space:nowrap;overflow:hidden;color:#141414;font-family:'Malgun Gothic','맑은 고딕',sans-serif;line-height:1.25}
  .print-value.checkmark{font-family:Arial,sans-serif;font-weight:bold;overflow:visible;color:#111;line-height:1}
 }
+
+.signature-input{max-width:560px;margin:14px auto;padding:13px 15px;text-align:left;background:#fafcfd;border:1px solid #c5d5df;border-radius:6px}
+.signature-mode{display:flex;gap:20px;margin-bottom:10px;font-size:13px}.signature-mode label{display:inline-flex;align-items:center;gap:6px;cursor:pointer}.signature-mode input{accent-color:var(--blue);margin:0}
+#teacherSignCanvas{display:block;width:100%;height:145px;border:1px solid #aebdcb;background:white;touch-action:none;cursor:crosshair}
+.sign-tools{display:flex;gap:10px;align-items:center;margin-top:7px}.sign-tools button{padding:5px 10px;font-size:12px}.sign-tools span,.small-sign-note{font-size:11px;color:#667e91}
+#teacherSignFile{display:block;max-width:100%;border:1px solid #bdcfdc;padding:9px;background:var(--yellow);font-size:12px}
+#teacherSignPreview{max-width:100%;max-height:145px;object-fit:contain;margin-top:10px;border:1px solid #c5d5df;background:white}#teacherSignPreview[hidden]{display:none}
+.sign-error{font-size:12px;padding:8px 10px;background:#fff0ed;border:1px solid #e6b7b2;color:#9a292a}
+.signature .email-row{margin-top:9px;flex-wrap:wrap}.signature .email-row label{font-weight:600}
+@media print{.signature-input{display:none!important}}
 </style>
 </head>
 <body>
-<header><h1>교육 TA 추천서 <span style="font-size:12px;color:#6e8493;font-weight:normal">첨부 · 양식 7</span></h1><p>로봇특성화대학사업단 · 교수자 추천 전용 · 교과목 TA / 실습 TA 구분 필수</p></header>
+<header><h1>교육 TA 추천서</h1><p>로봇특성화대학사업단 · 교수자 추천 전용 · 교과목 TA / 실습 TA 구분 필수</p></header>
 <div class="site-tools"><a class="nav-link" href="https://airoboticsgroup-crypto.github.io/form/">사업단 서식 목록</a><span style="align-self:center;color:#667f90;font-size:12px">2027년 3월부터 두 TA 유형 모두 참여율 10% · 20% · 30%</span></div>
 <main class="sheet"><form id="taForm" novalidate autocomplete="on">
 <div id="pages"></div>
@@ -120,10 +130,22 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 <p>위와 같이 추천하오니 승인하여 주시기 바랍니다.</p>
 <div class="date-row"><label for="applicationDate">신청일 <input type="date" id="applicationDate" required></label></div>
 <div class="teacher-row"><label for="teacherName">로봇특성화대학사업단 참여교원:</label><input id="teacherName" maxlength="80" required placeholder="참여교원 성명" autocomplete="name"> <span>(인)</span></div>
-<div class="email-row"><label for="teacherEmail">교수 이메일 (선택)</label><input id="teacherEmail" type="email" maxlength="120" placeholder="학교메일 또는 Gmail" autocomplete="email"></div>
+
+<section class="signature-input screen-only" aria-label="참여교원 서명">
+ <div class="signature-mode" role="radiogroup" aria-label="서명 방식 선택">
+  <label><input type="radio" name="teacherSignMode" value="draw" checked> 직접 서명</label>
+  <label><input type="radio" name="teacherSignMode" value="image"> 이미지 첨부</label>
+ </div>
+ <div id="teacherSignDraw"><canvas id="teacherSignCanvas" width="560" height="170" aria-label="서명 입력 영역. 마우스 또는 손가락으로 서명하세요."></canvas>
+  <div class="sign-tools"><button id="teacherSignClear" type="button">서명 지우기</button><span>서명을 입력하세요.</span></div></div>
+ <div id="teacherSignUpload" hidden><input id="teacherSignFile" type="file" accept="image/png,image/jpeg" aria-label="서명 이미지 파일 첨부">
+  <img id="teacherSignPreview" alt="첨부한 서명 이미지 미리보기" hidden><p class="small-sign-note">PNG 또는 JPG · 2MB 이하</p></div>
+ <p id="teacherSignError" class="sign-error" role="alert" hidden></p>
+</section>
+<div class="email-row"><label for="teacherEmail">이메일 (접수 확인용 · 선택)</label><input id="teacherEmail" type="email" maxlength="120" placeholder="학교메일 또는 Gmail" autocomplete="email" inputmode="email"></div>
 <div class="director">위의 내용을 승인합니다. 로봇특성화대학사업단장 최용훈 (인)</div>
 </section>
-<div class="note screen-only"><strong>제출 안내</strong> · 교과목 TA 또는 실습 TA를 반드시 선택하고 참여율을 선택하세요. 개인정보 이용 동의서는 사업단에 별도 제출해야 합니다. 추천서 제출 시 이 안내를 확인한 것으로 처리합니다. 주민등록번호는 웹에서 수집하지 않으며, 은행·계좌는 선택 입력입니다. 참여교원/사업단장 서명과 최종 PDF 저장은 관리자가 처리합니다.</div>
+<div class="note screen-only"><strong>제출 안내</strong> · 교과목 TA 또는 실습 TA를 반드시 선택하고 참여율을 선택하세요. 개인정보 이용 동의서는 사업단에 별도 제출해야 합니다. 추천서 제출 시 이 안내를 확인한 것으로 처리합니다. 주민등록번호는 웹에서 수집하지 않으며, 은행·계좌는 선택 입력입니다. 사업단장 서명과 최종 PDF 저장은 관리자가 처리합니다.</div>
 <div class="submit-actions screen-only"><button id="clearForm" type="button">입력 초기화</button><button id="submitForm" class="primary" type="submit">추천서 제출</button></div>
 <div id="submitMessage" class="status" hidden role="status" aria-live="polite"></div>
 </form></main>
@@ -134,18 +156,18 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   <th class="ta-mark" rowspan="8" scope="rowgroup"><span data-item-title>TA<br>추천정보<br>1</span><button class="removeStudent screen-only" type="button">삭제</button></th>
   <th scope="row">지원업무명</th>
   <td colspan="4"><div class="field-inline">
-     <input class="form-input" name="duty" aria-label="지원업무명 또는 교과목명" placeholder="교과목명·실습업무명" maxlength="150" required>
+     <input class="form-input" name="duty" aria-label="지원업무명 또는 교과목명" placeholder="교과목명·실습업무명" maxlength="150">
      <div class="kind-choice" role="group" aria-label="TA 구분 필수 선택">
-      <label><input type="radio" data-kind name="kind" value="course" required>교육 TA(교과)</label>
+      <label><input type="radio" data-kind name="kind" value="course">교육 TA(교과)</label>
       <label><input type="radio" data-kind name="kind" value="practice">교육 TA(실습)</label>
      </div>
     </div></td>
 </tr>
-<tr class="pair-row"><th scope="row">성명</th><td colspan="2"><input class="form-input" name="name" maxlength="60" required aria-label="TA 성명"></td><th scope="row">소속학과</th><td><input class="form-input" name="department" maxlength="80" required aria-label="소속학과"></td></tr>
-<tr class="pair-row"><th scope="row">학번</th><td colspan="2"><input class="form-input" name="studentNo" maxlength="40" required aria-label="학번"></td><th scope="row">연락처</th><td><input class="form-input" name="phone" type="tel" maxlength="40" required aria-label="연락처" placeholder="010-0000-0000"></td></tr>
+<tr class="pair-row"><th scope="row">성명</th><td colspan="2"><input class="form-input" name="name" maxlength="60" aria-label="TA 성명"></td><th scope="row">소속학과</th><td><input class="form-input" name="department" maxlength="80" aria-label="소속학과"></td></tr>
+<tr class="pair-row"><th scope="row">학번</th><td colspan="2"><input class="form-input" name="studentNo" maxlength="40" aria-label="학번"></td><th scope="row">연락처</th><td><input class="form-input" name="phone" type="tel" maxlength="40" aria-label="연락처" placeholder="010-0000-0000"></td></tr>
 <tr class="research-row"><th scope="row">국가연구자번호</th><td colspan="2"><input class="form-input" name="researcherNo" maxlength="40" aria-label="국가연구자번호"></td><th scope="row">주민등록번호</th><td class="privacy">온라인 미수집 · 사업단 별도 제출</td></tr>
 <tr class="bank-row"><th scope="row">계좌정보</th><td colspan="4"><div class="bank-choice"><label>은행명:<input class="form-input" name="bankName" maxlength="40" aria-label="은행명" autocomplete="off"></label><label>계좌번호:<input class="form-input" name="bankAccount" maxlength="80" aria-label="계좌번호" autocomplete="off"></label></div></td></tr>
-<tr class="rate-row"><th rowspan="3" scope="row">신청 참여율</th><td rowspan="3"><div class="degree-choice" role="group" aria-label="학위과정 필수 선택"><label><input type="radio" name="degree" data-degree value="master" required>석사</label><label><input type="radio" name="degree" data-degree value="doctor">박사</label></div></td><td colspan="2" class="rate-choice" data-rate-cell="course"><label><input type="radio" name="rate" data-rate-kind="course" data-rate value="10" required><span>교육TA(교과) 참여율(10%)</span></label></td><td class="rate-choice" data-rate-cell="practice"><label><input type="radio" name="rate" data-rate-kind="practice" data-rate value="10"><span>교육TA(실습) 참여율(10%)</span></label></td></tr>
+<tr class="rate-row"><th rowspan="3" scope="row">신청 참여율</th><td rowspan="3"><div class="degree-choice" role="group" aria-label="학위과정 필수 선택"><label><input type="radio" name="degree" data-degree value="master">석사</label><label><input type="radio" name="degree" data-degree value="doctor">박사</label></div></td><td colspan="2" class="rate-choice" data-rate-cell="course"><label><input type="radio" name="rate" data-rate-kind="course" data-rate value="10"><span>교육TA(교과) 참여율(10%)</span></label></td><td class="rate-choice" data-rate-cell="practice"><label><input type="radio" name="rate" data-rate-kind="practice" data-rate value="10"><span>교육TA(실습) 참여율(10%)</span></label></td></tr>
 <tr class="rate-row"><td colspan="2" class="rate-choice" data-rate-cell="course"><label><input type="radio" name="rate" data-rate-kind="course" data-rate value="20"><span>교육TA(교과) 참여율(20%)</span></label></td><td class="rate-choice" data-rate-cell="practice"><label><input type="radio" name="rate" data-rate-kind="practice" data-rate value="20"><span>교육TA(실습) 참여율(20%)</span></label></td></tr>
 <tr class="rate-row"><td colspan="2" class="rate-choice" data-rate-cell="course"><label><input type="radio" name="rate" data-rate-kind="course" data-rate value="30"><span>교육TA(교과) 참여율(30%)</span></label></td><td class="rate-choice" data-rate-cell="practice"><label><input type="radio" name="rate" data-rate-kind="practice" data-rate value="30"><span>교육TA(실습) 참여율(30%)</span></label></td></tr>
 
@@ -172,6 +194,53 @@ function submitToAppsScript(payload){
  const form=document.createElement('form');form.method='POST';form.action=TA7_WEBAPP_URL;form.target='_top';form.acceptCharset='UTF-8';form.hidden=true;
  const field=document.createElement('textarea');field.name='ta7Request';field.value=JSON.stringify({version:1,operation:'submit',payload});form.append(field);document.body.append(form);form.submit();
 }
+
+const teacherCanvas=$('teacherSignCanvas'),teacherCtx=teacherCanvas.getContext('2d');
+let teacherHasStroke=false,teacherImage='',teacherImagePending=false,teacherPointer=null;
+teacherCtx.strokeStyle='#18344b';teacherCtx.lineWidth=2.8;teacherCtx.lineCap='round';teacherCtx.lineJoin='round';
+const teacherMode=()=>document.querySelector('[name="teacherSignMode"]:checked')?.value||'draw';
+function teacherPoint(ev){const r=teacherCanvas.getBoundingClientRect();return {x:(ev.clientX-r.left)*teacherCanvas.width/r.width,y:(ev.clientY-r.top)*teacherCanvas.height/r.height};}
+function teacherError(str){$('teacherSignError').hidden=!str;$('teacherSignError').textContent=str||'';}
+teacherCanvas.addEventListener('pointerdown',ev=>{
+ if(teacherMode()!=='draw')return;ev.preventDefault();teacherPointer=ev.pointerId;
+ teacherCanvas.setPointerCapture(ev.pointerId);const p=teacherPoint(ev);teacherCtx.beginPath();teacherCtx.moveTo(p.x,p.y);teacherCtx.lineTo(p.x+.1,p.y+.1);teacherCtx.stroke();teacherHasStroke=true;teacherError('');
+});
+teacherCanvas.addEventListener('pointermove',ev=>{
+ if(teacherPointer!==ev.pointerId)return;ev.preventDefault();
+ const p=teacherPoint(ev);teacherCtx.lineTo(p.x,p.y);teacherCtx.stroke();
+});
+['pointerup','pointercancel','lostpointercapture'].forEach(ev=>teacherCanvas.addEventListener(ev,()=>{teacherPointer=null;populatePrintLayers();}));
+$('teacherSignClear').addEventListener('click',()=>{teacherCtx.clearRect(0,0,teacherCanvas.width,teacherCanvas.height);teacherHasStroke=false;teacherError('');populatePrintLayers();});
+document.querySelectorAll('[name="teacherSignMode"]').forEach(r=>r.addEventListener('change',()=>{
+ const image=teacherMode()==='image';$('teacherSignDraw').hidden=image;$('teacherSignUpload').hidden=!image;teacherError('');populatePrintLayers();
+}));
+$('teacherSignFile').addEventListener('change',async ev=>{
+ teacherImage='';$('teacherSignPreview').hidden=true;teacherError('');
+ const f=ev.target.files?.[0];if(!f){populatePrintLayers();return;}
+ try{
+  teacherImagePending=true;
+  if(!['image/png','image/jpeg'].includes(f.type)||f.size>2*1024*1024)throw Error('PNG/JPG 이미지는 2MB 이하여야 합니다.');
+  const img=await createImageBitmap(f);
+  try{
+   if(img.width*img.height>18000000)throw Error('서명 이미지 해상도가 너무 큽니다.');
+   const c=document.createElement('canvas');c.width=560;c.height=170;
+   const ctx=c.getContext('2d'),k=Math.min(c.width/img.width,c.height/img.height);
+   ctx.drawImage(img,(c.width-img.width*k)/2,(c.height-img.height*k)/2,img.width*k,img.height*k);
+   teacherImage=c.toDataURL('image/png');
+   if(teacherImage.length>400000)throw Error('서명 이미지 용량을 줄여주세요.');
+   $('teacherSignPreview').src=teacherImage;$('teacherSignPreview').hidden=false;populatePrintLayers();
+  }finally{img.close();}
+ }catch(e){teacherImage='';ev.target.value='';teacherError(e.message||'이미지를 처리하지 못했습니다.');}
+ finally{teacherImagePending=false;}
+});
+function teacherSignature(){
+ if(teacherImagePending)throw Error('서명 이미지 처리 중입니다.');
+ const mode=teacherMode(),data=mode==='draw'?(teacherHasStroke?teacherCanvas.toDataURL('image/png'):''):teacherImage;
+ if(!data){teacherError('직접 서명하거나 서명 이미지를 첨부하세요.');throw Error('참여교원 서명을 입력하세요.');}
+ if(data.length>400000)throw Error('서명 이미지가 너무 큽니다. 크기를 줄여주세요.');
+ return {signMode:mode==='draw'?'direct':'image',signature:data};
+}
+
 function syncRateKind(item){
  const kind=item.querySelector('input[data-kind]:checked')?.value||'';
  item.querySelectorAll('input[data-rate]').forEach(r=>{
@@ -230,6 +299,8 @@ function populatePrintLayers(){
  for(let pg=0;pg<pagesArr.length;pg++){
   if(dateValue){const mask=document.createElement('div');mask.style.cssText='position:absolute;left:251pt;top:684pt;width:101pt;height:20pt;background:white;';overlays[pg].append(mask);add(pg,dateValue,255.3,688.2,95,9.7);}
   if(teacher)add(pg,teacher,445.2,706.3,44,9.5);
+  const sign=teacherMode()==='draw'?(teacherHasStroke?teacherCanvas.toDataURL('image/png'):''):teacherImage;
+  if(sign&&overlays[pg]){const im=document.createElement('img');im.alt='참여교원 서명';im.src=sign;im.style.cssText='position:absolute;left:483pt;top:698pt;width:32pt;height:25pt;object-fit:contain;';overlays[pg].append(im);}
  }
 }
 function repaginate(){
@@ -239,7 +310,7 @@ function repaginate(){
   if(i%3===0){
    const page=document.createElement('div');page.className='form-page';
    const heading=document.createElement('div');heading.className='paper-heading';heading.textContent='첨부 · 양식 7. 교육 TA 추천서';
-   const h=document.createElement('div');h.className='screen-only';h.innerHTML='<div class="sheet-tag"><strong>첨부</strong><span>양식 7. 교육 TA 추천서</span></div><h2 class="document-title">교육 TA 추천서</h2>';
+   const h=document.createElement('div');h.className='screen-only';h.innerHTML='<h2 class="document-title">교육 TA 추천서</h2>';
    table=document.createElement('table');table.className='form-table';table.setAttribute('aria-label','교육 TA 추천서 '+(Math.floor(i/3)+1)+'페이지');
    table.innerHTML='<colgroup><col style="width:12%"><col style="width:18%"><col style="width:10%"><col style="width:12%"><col style="width:14%"><col style="width:34%"></colgroup><thead><tr class="head-bar"><th>첨부</th><th colspan="5">양식 7. 교육 TA 추천서</th></tr><tr class="head-title"><th colspan="6">교육 TA 추천서</th></tr></thead>';
    const originalBg=document.createElement('div');originalBg.className='reference-bg';
@@ -279,13 +350,15 @@ function studentData(item){
  const v=name=>{const e=item.querySelector('[name="'+name+'"]');return e?e.value.trim():''};
  return{duty:v('duty'),kind:item.querySelector('input[data-kind]:checked')?.value||'',name:v('name'),department:v('department'),studentNo:v('studentNo'),phone:v('phone'),researcherNo:v('researcherNo'),googleEmail:'',bankName:v('bankName'),bankAccount:v('bankAccount'),degree:item.querySelector('input[data-degree]:checked')?.value||'',rate:Number(item.querySelector('input[data-rate]:checked')?.value||0),start:'',end:'',consentUrl:'',notes:'',consentConfirmed:true};
 }
-function clientValidate(rows){
+function clientValidate(rows,usedItems){
  for(let i=0;i<rows.length;i++){
-  const r=rows[i],n=i+1;
-  if(!r.duty||!r.name||!r.department||!r.studentNo||!r.phone||!r.kind||!r.degree||![10,20,30].includes(r.rate))throw new Error(n+'번째 TA의 필수항목 또는 참여율을 확인하세요. 교과목 TA/실습 TA 구분도 필수입니다.');
-
+  const r=rows[i],item=usedItems[i];
+  for(const [key,label] of [['duty','지원업무명'],['kind','TA 구분'],['name','성명'],['department','소속학과'],['studentNo','학번'],['phone','연락처'],['degree','학위과정']]){
+   if(!r[key]){const selector=key==='kind'?'input[data-kind]':key==='degree'?'input[data-degree]':'[name="'+key+'"]';item.querySelector(selector)?.focus();throw Error((i+1)+'번째 TA의 '+label+'을 입력하세요.');}
+  }
+  if(![10,20,30].includes(r.rate)){item.querySelector('input[data-rate]:not(:disabled)')?.focus();throw Error((i+1)+'번째 TA의 참여율(10%·20%·30%)을 선택하세요.');}
  }
- const ids=rows.map(r=>r.studentNo.replace(/\s+/g,'').toUpperCase());if(new Set(ids).size!==ids.length)throw new Error('같은 신청서에 학번이 중복되었습니다.');
+ const ids=rows.map(r=>r.studentNo.replace(/\s+/g,'').toUpperCase());if(new Set(ids).size!==ids.length)throw Error('같은 신청서에 학번이 중복되었습니다.');
 }
 function validateIncludingBlankRows(items,usedItems){
  const blank=items.filter(item=>!usedItems.includes(item));const toDisable=blank.flatMap(item=>Array.from(item.querySelectorAll('input,select,textarea')).filter(el=>!el.disabled));
@@ -297,12 +370,13 @@ $('taForm').addEventListener('submit',async ev=>{
  try{
   const items=Array.from(document.querySelectorAll('tbody[data-ta-row]'));const usedItems=items.filter(taRowHasContent);
   if(!usedItems.length)throw new Error('TA 추천정보를 최소 1명 입력하세요.');
-  const students=usedItems.map(studentData);clientValidate(students);
+  const students=usedItems.map(studentData);clientValidate(students,usedItems);
   const professorName=$('teacherName').value.trim();if(!professorName)throw new Error('하단의 참여교원 성명을 입력하세요.');
   const professorEmail=$('teacherEmail').value.trim();const date=$('applicationDate').value;if(!date)throw new Error('신청일을 입력하세요.');
-  if(!validateIncludingBlankRows(items,usedItems))return;
+  if(!validateIncludingBlankRows(items,usedItems)){const invalid=$('taForm').querySelector(':invalid');message('submitMessage',invalid?.id==='teacherName'?'참여교원 성명을 입력하세요.':invalid?.id==='applicationDate'?'신청일을 확인하세요.':'이메일 형식을 확인하세요.','error');invalid?.focus();return;}
+  const sig=teacherSignature();
   submitBusy=true;$('submitForm').disabled=true;$('submitForm').textContent='접수 서버로 이동 중...';
-  submitToAppsScript({professorName,email:professorEmail,date,students,nonce});
+  submitToAppsScript({professorName,email:professorEmail,date,students,nonce,...sig});
  }catch(e){message('submitMessage',e.message||String(e),'error');$('submitForm').disabled=false;$('submitForm').textContent='추천서 제출';submitBusy=false;}
 });
 (function init(){const d=new Date(),z=n=>String(n).padStart(2,'0');$('applicationDate').value=d.getFullYear()+'-'+z(d.getMonth()+1)+'-'+z(d.getDate());for(let i=0;i<3;i++)addStudent();syncPrintFooter();populatePrintLayers()})();
