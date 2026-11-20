@@ -263,18 +263,25 @@ tr.attendee-row{height:34px}
 
  // 출력 시 긴 내용은 적당한 길이로 분할합니다. 어떤 행도 한 페이지보다 커지지 않도록 합니다.
  function f14PrintChunks(raw){
-   const text=String(raw||"").replace(/\r\n?/g,"\n"),parts=[];
-   let part="",lines=1,lineWidth=0;
-   for(const char of text){
-     if(part&&(part.length>=680||lines>=24)){
-       parts.push(part);part="";lines=1;lineWidth=0;
+   const value=String(raw||"").replace(/\r\n?/g,"\n"),parts=[];
+   let start=0;
+   while(start<value.length){
+     let stop=start,lines=1,lineWidth=0;
+     while(stop<value.length&&stop-start<680&&lines<24){
+       const ch=value[stop++];
+       if(ch==="\n"){lines++;lineWidth=0}
+       else{lineWidth++;if(lineWidth>=44){lines++;lineWidth=0}}
      }
-     part+=char;
-     if(char==="\n"){lines++;lineWidth=0}
-     else{lineWidth++;if(lineWidth>=44){lines++;lineWidth=0}}
+     let end=stop;
+     if(end<value.length){
+       const min=start+Math.max(80,(end-start)-80);
+       while(end>min&&!/\s/.test(value[end-1]))end--;
+       if(end<=min)end=stop;
+     }
+     parts.push(value.slice(start,end));
+     start=end;
    }
-   parts.push(part);
-   return parts;
+   return parts.length?parts:[""];
  }
  function f14UpdatePrintContinuations(){
    form.querySelectorAll(".print-continuation").forEach(row=>row.remove());
